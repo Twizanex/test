@@ -403,6 +403,80 @@ class Profile extends CI_controller {
 
 	}
 
+	#feature a service
+
+	public function featurepost($page='0',$id='',$confirmation='')
+
+	{
+		if(!is_admin())
+		{
+			echo 'You don\'t have permission for this action';
+			die;
+		}
+
+		$this->realestate_model->update_post_by_id(array('featured'=>1),$id);
+
+		$this->session->set_flashdata('msg', '<div class="alert alert-success">Post Featured</div>');
+
+		redirect(site_url('profile/allestates/'.$page));		
+
+	}
+
+
+
+	#feature a service
+
+	public function removefeaturepost($page='0',$id='',$confirmation='')
+
+	{
+
+		if(!is_admin())
+		{
+			echo 'You don\'t have permission for this action';
+			die;
+		}
+
+		$this->realestate_model->update_post_by_id(array('featured'=>0),$id);
+
+		$this->session->set_flashdata('msg', '<div class="alert alert-success">Post Un-Featured</div>');
+
+		redirect(site_url('profile/allestates/'.$page));		
+
+	}
+
+	public function featurepayment($page='0',$id='')
+
+	{
+		$this->load->helper('date');
+		$datestring = "%Y-%m-%d";
+		$time = time();
+		$request_date = mdate($datestring, $time);
+
+		$data = array();
+		$data['unique_id']      = uniqid();
+		$data['amount'] 		= get_settings('realestate_settings','feature_charge','0');
+		$data['currency']   	= get_settings('paypalsettings','currency','USD');
+		$data['daylimit']   	= get_settings('realestate_settings','feature_day_limit','0');
+		$data['requestdate']    = $request_date;
+		$data['activation_date']= '';
+		$data['expirtion_date'] = '';
+		$data['user_id']      	= $this->session->userdata('user_id');
+		$data['medium']      	= 'paypal';
+		$data['is_active']      = 0;
+		
+		$this->session->set_userdata('unique_id',$data['unique_id']);
+		add_post_meta($id,'featurepayment_'.$data['unique_id'],json_encode($data));
+
+		$value['post'] 		= $this->realestate_model->get_estate_by_id($id);
+
+	    $data['title'] 		= 'Pay for feature';
+
+        $data['content']  	= $this->load->view('admin/estate/feature_payment_view',$value,TRUE);
+
+		$this->load->view('admin/template/template_view',$data);			
+
+	}
+
 
 	public function get_distance_info($post_id) {
 

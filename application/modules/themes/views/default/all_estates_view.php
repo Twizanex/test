@@ -194,13 +194,13 @@ $dl = default_lang();
                             <li><a href="<?php echo site_url('admin/realestate/approveestate/'.$curr_page.'/'.$row->id);?>">Approve</a></li>
                             <?php }?>
                             <?php if($row->featured==0){?>
-                            <li><a href="<?php echo site_url('admin/realestate/featurepost/'.$curr_page.'/'.$row->id);?>">Make Featured</a></li>
+                            <li><a href="<?php echo site_url('profile/featurepost/'.$curr_page.'/'.$row->id);?>">Make Featured</a></li>
                             <?php }else{?>
-                            <li><a href="<?php echo site_url('admin/realestate/removefeaturepost/'.$curr_page.'/'.$row->id);?>">Remove Featured</a></li>
+                            <li><a href="<?php echo site_url('profile/removefeaturepost/'.$curr_page.'/'.$row->id);?>">Remove Featured</a></li>
                             <?php }?>
                           <?php }else{?>
                             <?php if(get_settings('realestate_settings','enable_feature_payment','No')=='Yes' && $row->featured==0){?>
-                            <li><a href="<?php echo site_url('admin/realestate/featurepayment/'.$curr_page.'/'.$row->id);?>">Make Featured</a></li>
+                            <li><a href="<?php echo site_url('profile/featurepayment/'.$curr_page.'/'.$row->id);?>">Make Featured</a></li>
                             <?php }?>
                           <?php }?>
                       </ul>
