@@ -1,0 +1,309 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+/**
+ * Social estate profile Controller
+ *
+ * This class handles user account related functionality
+ *
+ * @package		Profile
+ * @subpackage	Profile
+ * @author		Alex
+ * @link		http://topsitoweb.it
+ */
+
+
+
+class Profile extends CI_controller {
+
+
+
+	var $PER_PAGE = 2;
+
+	var $active_theme = '';
+
+	public function __construct()
+
+	{
+
+		parent::__construct();
+
+		is_installed(); #defined in auth helper		
+
+		$this->PER_PAGE = get_per_page_value();#defined in auth helper
+
+		$this->active_theme = get_active_theme();
+
+		//$this->load->model('show_model');
+		$this->load->model('profile_model');
+        $this->load->model('user/user_model');
+
+		$this->load->library('encrypt');
+		$this->load->helper('text');
+
+
+		if(isset($_POST['view_orderby']))
+
+		{
+
+			$this->session->set_userdata('view_orderby',$this->input->post('view_orderby'));
+
+		}
+
+
+
+		if(isset($_POST['view_ordertype']))
+
+		{
+
+			$this->session->set_userdata('view_ordertype',$this->input->post('view_ordertype'));
+
+		}
+
+        $system_currency_type = get_settings('site_settings','system_currency_type',0);
+
+        if($system_currency_type == 0){
+
+            $system_currency = get_currency_icon(get_settings('site_settings','system_currency','USD'));
+
+        }
+
+        else{
+
+            $system_currency = get_settings('site_settings','system_currency','USD');
+
+        }
+
+
+
+        $this->session->set_userdata('system_currency',$system_currency);
+
+        $this->form_validation->set_error_delimiters('<div class="alert alert-danger">', '</div>');
+
+	}
+
+
+
+	
+	
+
+
+
+	public function index($start='0')
+
+	{
+
+        $value['query']			= $this->show_model->get_users_by_range($start,$this->PER_PAGE,'id');
+
+        $total 					= $this->show_model->count_users();
+
+        $value['pages']			= configPagination('show/agent/',$total,4,$this->PER_PAGE);
+
+		$data['content'] 	= load_view('profile_view',$value,TRUE);
+
+		$data['alias']	    = 'agent';
+
+		load_template($data,$this->active_theme);	
+
+	}
+
+
+	public function editprofile()
+
+	{
+
+
+
+		$value['profile']	= $this->profile_model->get_user_profile($this->session->userdata('user_name'));  
+
+		$data['title']		= 'Edit profile';
+
+		$data['content'] 	= load_view('editprofile_view',$value,TRUE);
+
+		load_template($data,$this->active_theme);
+	}
+
+
+
+
+
+	public function agentproperties($user_id='0',$start=0)
+
+	{	
+
+		$value['user']			= $this->show_model->get_user_by_userid($user_id);	
+
+		$value['page_title']	= lang_key('DBC_AGENT_PROPERTIES');
+
+		$value['query']			= $this->show_model->get_all_estates_agent($user_id,$start,$this->PER_PAGE,'id');
+
+        $total 					= $this->show_model->count_all_estates_agent($user_id);
+
+		$value['pages']			= configPagination('show/agentproperties/'.$user_id,$total,5,$this->PER_PAGE);
+
+
+
+        $value['view_style'] 	= 'grid';
+
+		$data['content'] 		= load_view('agent_properties_view',$value,TRUE);
+
+		$data['alias']	    	= 'type';
+
+		load_template($data,$this->active_theme);
+
+	}
+
+
+
+	public function page($alias='')
+
+	{	
+
+		$value['alias']   = $alias;
+
+		$value['query']  = $this->show_model->get_page_by_alias($alias);
+
+		$data['content'] = load_view('page_view',$value,TRUE,$this->active_theme);
+
+		$data['alias']   = $alias;
+
+		load_template($data,$this->active_theme);
+
+	}
+
+
+
+	public function sendemailtoagent($agent_id='0')
+
+	{
+
+		$this->form_validation->set_rules('sender_name', 'Name', 'required');
+
+		$this->form_validation->set_rules('sender_email', 'Email', 'required|valid_email');
+
+		$this->form_validation->set_rules('subject', 'Subject', 'required');
+
+		$this->form_validation->set_rules('msg', 'Message', 'required');
+
+		$unique_id 	= $this->input->post('unique_id');		
+
+		$title 		= $this->input->post('title');		
+
+		if ($this->form_validation->run() == FALSE)
+
+		{
+
+			$this->detail($unique_id,$title);	
+
+		}
+
+		else
+
+		{
+
+
+
+			$this->load->library('email');
+
+			$config['mailtype'] = "html";
+
+			$config['charset'] 	= "utf-8";
+
+			$this->email->initialize($config);
+
+
+
+			$this->email->from($this->input->post('sender_email'),$this->input->post('sender_name'));
+
+			$this->email->to(get_user_email_by_id($agent_id));
+
+
+
+			$this->email->subject($this->input->post('subject'));
+
+			$this->email->message($this->input->post('msg'));
+
+
+
+			$this->email->send();
+
+
+
+			$this->session->set_flashdata('msg', '<div class="alert alert-success">Email sent</div>');
+
+			redirect(site_url('show/detail/'.$unique_id.'/'.$title));			
+
+		}
+
+	}
+
+
+
+	public function sendcontactemail()
+
+	{
+
+		$this->form_validation->set_rules('sender_name', 'Name', 'required');
+
+		$this->form_validation->set_rules('sender_email', 'Email', 'required|valid_email');
+
+		$this->form_validation->set_rules('msg', 'Message', 'required');
+
+		if ($this->form_validation->run() == FALSE)
+
+		{
+
+			$this->contact();	
+
+		}
+
+		else
+
+		{
+
+
+
+			$this->load->library('email');
+
+			$config['mailtype'] = "html";
+
+			$config['charset'] 	= "utf-8";
+
+			$this->email->initialize($config);
+
+
+
+			$this->email->from($this->input->post('sender_email'),$this->input->post('sender_name'));
+
+			$this->email->to(get_settings('webadmin_email','contact_email','support@example.com'));
+
+
+
+			$this->email->subject(lang_key('DBC_CONTACT_SUBJECT'));
+
+			$this->email->message($this->input->post('msg'));
+
+
+
+			$this->email->send();
+
+
+
+			$this->session->set_flashdata('msg', '<div class="alert alert-success">Email sent</div>');
+
+			redirect(site_url('show/contact/'));			
+
+		}
+
+	}
+
+
+
+}
+
+
+
+
+
+/* End of file install.php */
+
+/* Location: ./application/modules/show/controllers/show_core.php */
