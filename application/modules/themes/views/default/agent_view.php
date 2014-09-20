@@ -20,7 +20,7 @@
             <div class="agent-holder clearfix">
                 <h4><?php echo $user->first_name.' '.$user->last_name; ?></h4>
                 <div class="agent-image-holder">
-                    <a href="<?php echo site_url('show/agentproperties/'.$user->user_name);?>"><img width="150" height="150" src="<?php echo get_profile_photo_by_id($user->id,'thumb');?>"></a>
+                    <a href="<?php echo site_url('p/'.$user->user_name);?>"><img width="150" height="150" src="<?php echo get_profile_photo_by_id($user->id,'thumb');?>"></a>
                 </div>
 
                 <div class="detail">
@@ -28,7 +28,7 @@
                     <p class="contact-types">
                         <strong><?php echo lang_key('phone'); ?>:</strong> <?php echo get_user_meta($user->id, 'phone'); ?> <strong>Email:</strong> <a href="mailto:<?php echo $user->user_email; ?>"><?php echo $user->user_email; ?></a>
                     </p>
-                    <div class="agent-properties"><a href="<?php echo site_url('show/agentproperties/'.$user->user_name);?>" style="color:#fff;"><?php echo get_user_properties_count($user->id);?> <?php echo lang_key('estates');?></a></div>
+                    <div class="agent-properties"><a href="<?php echo site_url('p/'.$user->user_name);?>" style="color:#fff;"><?php echo get_user_properties_count($user->id);?> <?php echo lang_key('estates');?></a></div>
                 </div>
 
                 <div class="follow-agent clearfix">

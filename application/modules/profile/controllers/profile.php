@@ -35,7 +35,7 @@ class Profile extends CI_controller {
 
 		$this->active_theme = get_active_theme();
 
-		$this->load->model('show_model');
+		//$this->load->model('show_model');
 		$this->load->model('profile_model');
         $this->load->model('user/user_model');
 

@@ -863,9 +863,15 @@ class Show_core extends CI_controller {
 
 	{	
 
-		$value['user']			= $this->show_model->get_user_by_username($user_name);	
+		$value['user']		= $this->show_model->get_user_by_username($user_name);	
+  		
+  		$user = $value['user']->row();
 
+  		$user_id = $user->id;
+		
 		$value['page_title']	= lang_key('agent_estates');
+		
+		//$value['user']= $user;
 
 		$value['query']			= $this->show_model->get_all_estates_agent($user_id,$start,$this->PER_PAGE,'id');
 

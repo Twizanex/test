@@ -1398,7 +1398,7 @@ class Show_model_core extends CI_Model
         $query = $this->db->get_where('users',array('user_name'=>$user_name));
 
         return $query;
-
+        
     }
 
 
