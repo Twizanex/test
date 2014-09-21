@@ -739,7 +739,8 @@ hr.margin-0 {
 }
 .nav-list>li .submenu>li {
 	margin-left:0;
-	position:relative
+	position:relative;
+	background: #E4E4E4;
 }
 .nav-list>li .submenu>li>a,.nav-list>li .submenu>li>span,.nav-list>li .submenu>li>ul>li>a {
 	display:block;
@@ -4485,10 +4486,10 @@ border-radius: 10px;
 	background-color:transparent
 }
 .navbar .nav>li>a,.navbar .nav>li>a:hover,.navbar .nav>li>a:focus,.dropdown-navbar>li.nav-header,.dbc-nav>li>a>[class*="fa-"],.navbar .navbar-brand,.nav-list .search-pan input,.nav-list .search-pan button>i,.nav-list>li>a,.nav-list>li>a:focus,.nav-list>li>a:hover,.nav-list>li>a .arrow,.nav-list>li a:hover>.arrow,.nav-list>li.active>a>.arrow,.nav-list>li.open>a>.arrow,.nav-list>li.open>a,.nav-list>li.active>a,.nav-list>li.active>a:hover,.nav-list>li.active>a:focus,.nav-list>li.active>a:active,.nav-list>li .submenu>li>a,.nav-list>li .submenu>li>span,.nav-list>li .submenu>li>ul>li>a,#nav-horizontal.nav-xs>li a,#sidebar-collapse>[class*="fa-"],.sidebar-collapsed .nav-list>li.open:hover>a {
-	color:#ffffff !important;
+	color:#FF0000 !important;
 }
 .navbar {
-	background:#425d78;
+	background:#FFFFFF;
 }
 .dbc-nav>li>a>.badge {
 	border-color:#58b1fc
@@ -4503,19 +4504,19 @@ border-radius: 10px;
 	border-color:#4ca4ee
 }
 #sidebar:before,.nav-list .search-form,.nav-list .search-pan input,#nav-horizontal.nav-xs>li>a,.nav-list>li>a {
-	background-color:#334454
+	background-color:#FFFFFF;
 }
 .nav-list .search-form:hover,.nav-list .search-form:hover .search-pan input,.nav-list>li.open>a,.nav-list>li.active>a,.nav-list>li.active>a:hover,.nav-list>li.active>a:focus,.nav-list>li.active>a:active,#nav-horizontal.nav-xs>li>a:hover,#nav-horizontal.nav-xs>li>a:focus,#nav-horizontal.nav-xs>li.open>a,#nav-horizontal.nav-xs>li.active>a,#nav-horizontal.nav-xs>li.active>a:hover,#nav-horizontal.nav-xs>li.active>a:focus,#nav-horizontal.nav-xs>li.active>a:active,#sidebar-collapse>[class*="fa-"]:hover,.sidebar-collapsed .nav-list>li:hover>a,.sidebar-collapsed .nav-list .search-pan input,.sidebar-collapsed .nav-list>li>a>span {
-	background-color:#2f9fe0;
+	background-color:#272727;
 }
 .nav-list>li>a:focus,.nav-list>li>a:hover {
-	background-color:#34495e !important
+	background-color:#272727; !important
 }
 #nav-horizontal.nav-xs>li .dropdown-menu,#nav-horizontal.nav-xs>li .dropdown-navbar>li:hover,.nav-list>li .submenu {
 	background-color:#304B5A !important
 }
 #sidebar-collapse>[class*="fa-"],#nav-horizontal.nav-xs>li .dropdown-menu>li>a:focus,#nav-horizontal.nav-xs>li .dropdown-menu>li>a:hover,#nav-horizontal.nav-xs>li .dropdown-menu>li.active>a,#nav-horizontal.nav-xs>li .dropdown-navbar>li.active,.nav-list>li .submenu>li>ul>li>a:focus,.nav-list>li .submenu>li>ul>li>a:hover,.nav-list>li .submenu>li>ul>li.active>a,.nav-list>li .submenu>li>a:focus,.nav-list>li .submenu>li>a:hover,.nav-list>li .submenu>li.active>a {
-	background-color:#3E5D6D
+	background-color:#E7E7E7;
 }
 .nav-list>li.active>a:after {
 	/*border-right-color:#e9f0f9*/
@@ -4524,7 +4525,7 @@ border-radius: 10px;
 	background:#EAEDF1;
 }
 .box>.box-title {
-	background-color:#2c3e50;
+	background-color:#272727;
 	-webkit-border-radius: 3px 3px 0px 0px;
 	-moz-border-radius: 3px 3px 0px 0px;
 	border-radius: 3px 3px 0px 0px;

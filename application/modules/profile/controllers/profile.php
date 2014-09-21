@@ -359,7 +359,7 @@ class Profile extends CI_controller {
 
 		$total 				= $this->realestate_model->count_all_estates_agent();
 
-		$value['pages']		= configPagination('profile/allestatesagent',$total,5,$this->PER_PAGE);
+		$value['pages']		= configPagination('profile/allestatesagent',$total,15,$this->PER_PAGE);
 
 		$value['start']     = $start;
 
