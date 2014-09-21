@@ -491,8 +491,6 @@ $curr_lang = ($this->uri->segment(1)!='')?$this->uri->segment(1):'en';
             <p class="details-title-head"><i class="fa fa-lightbulb-o fa-4"></i>&nbsp;<?php echo lang_key('energy_efficiency')?>: 
                 <?php for($i=1; $i <= 5; $i++){ ?>
                     <i class="fa fa-star <?php echo ($i<=intval($energy_efficiency))?'gold':'';?>"></i> 
-
-                    
                 <?php } ?>
             </p>
 
@@ -554,11 +552,7 @@ $curr_lang = ($this->uri->segment(1)!='')?$this->uri->segment(1):'en';
                    
 
            
-                    <input id="pac-input-details" class="controls" type="text"
-                       placeholder="Enter a location">
-                       <p><input type="button" value="Toggle Street View" onclick="toggleStreetView();"></input></p>
-                    <div id="details-map"  style="width: 100%; height: 300px;"></div>
-                    <div id="details-map2"  style="width: 100%; height: 300px;"></div> 
+                    
 
 
                     </div>
@@ -619,7 +613,25 @@ $curr_lang = ($this->uri->segment(1)!='')?$this->uri->segment(1):'en';
         </div>
 
 
-        
+        <div style="clear:both;margin-top:10px;"></div>
+
+        <div class="orange-border panel panel-primary">
+
+            <div class="panel-heading orange"><i class="fa fa-image"></i> <?php echo lang_key('featured_video'); ?></div>
+
+            <div class="panel-body">
+
+                <input id="pac-input-details" class="controls" type="text"
+                       placeholder="Enter a location">
+                     
+                    <div id="details-map"  style="width: 100%; height: 300px;"></div>
+                      <p><input type="button" value="Toggle Street View" onclick="toggleStreetView();"></input></p>
+                    <div id="details-map2"  style="width: 100%; height: 300px;"></div> 
+
+            </div>
+
+        </div>
+
 
 
         <?php if(get_post_meta($row->id,'video_url')!='n/a'){?>
