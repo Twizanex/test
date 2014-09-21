@@ -1,5 +1,22 @@
 <link rel="stylesheet" href="<?php echo theme_url();?>/assets/css/lightbox.css">
 <script src="<?php echo theme_url();?>/assets/js/lightbox.min.js"></script>
+
+<link type="text/css" rel="stylesheet" href="<?php echo theme_url();?>/assets/css/easy-responsive-tabs.css" />
+<script src="<?php echo theme_url();?>/assets/js/easyResponsiveTabs.js" type="text/javascript"></script>
+
+<style type="text/css">
+        
+       
+        .resp-tab-active {
+border: 1px solid #c1c1c1;
+margin-bottom: -1px !important;
+padding: 9px 14px 14px 14px !important;
+border-bottom: none;
+background-color: #fff;
+border-top: 4px solid #71AFFF;
+}
+    </style>
+
 <?php 
 
 $curr_lang = ($this->uri->segment(1)!='')?$this->uri->segment(1):'en';
@@ -51,6 +68,8 @@ $curr_lang = ($this->uri->segment(1)!='')?$this->uri->segment(1):'en';
     .tags-panel span{
         margin-right: 5px;
     }
+    
+   
 
     #details-map img { max-width: none; }
     #pac-input-details {
@@ -134,7 +153,20 @@ $curr_lang = ($this->uri->segment(1)!='')?$this->uri->segment(1):'en';
 
             }
 
+
+
             var map = new google.maps.Map(document.getElementById('details-map'), mapOptions);
+
+            var panoramaOptions = {
+                position: myLatlng,
+                pov: {
+                heading: 34,
+                pitch: 10
+                     }
+             };
+
+            var panorama = new google.maps.StreetViewPanorama(document.getElementById('details-map2'), panoramaOptions);
+  map.setStreetView(panorama);
 
 
 
@@ -256,6 +288,8 @@ $curr_lang = ($this->uri->segment(1)!='')?$this->uri->segment(1):'en';
         google.maps.event.addDomListener(window, 'load', initialize);
 
     });
+
+
 
 </script>
 
@@ -501,52 +535,89 @@ $curr_lang = ($this->uri->segment(1)!='')?$this->uri->segment(1):'en';
 
         <div style="clear:both;margin-top:10px;"></div>
 
-        <div class="orange-border panel panel-primary">
+        
 
-            <div class="panel-heading orange"><i class="fa fa-map-marker"></i> <?php echo lang_key('location_map'); ?></div>
 
-            <div class="panel-body">
-                <input id="pac-input-details" class="controls" type="text"
+
+                <!--Horizontal Tab-->
+        <div id="horizontalTab">
+            <ul class="resp-tabs-list">
+                <li><?php echo lang_key('location_map'); ?></li>
+                <li>Street View</li>
+                <li><?php echo lang_key('image_gallery'); ?></li>
+            </ul>
+            <div class="resp-tabs-container">
+                <div>
+
+                   
+
+           
+                    <input id="pac-input-details" class="controls" type="text"
                        placeholder="Enter a location">
-                <div id="details-map" style="width: 100%; height: 300px;"></div>
-
-            </div>
-
-        </div>
+                       <p><input type="button" value="Toggle Street View" onclick="toggleStreetView();"></input></p>
+                    <div id="details-map"  style="width: 100%; height: 300px;"></div>
+                    <div id="details-map2"  style="width: 100%; height: 300px;"></div> 
 
 
-        <?php $images = ($row->gallery!='')?json_decode($row->gallery):array();?>
-        <?php if(count($images)>0 && $images[0]!=''){?>
-        <div style="clear:both;margin-top:10px;"></div>
+                    </div>
+                
 
-        <div class="orange-border panel panel-primary">
+                <div>
+                
+                       
 
-            <div class="panel-heading orange"><i class="fa fa-image"></i> <?php echo lang_key('image_gallery'); ?></div>
+                </div>
 
-            <div class="panel-body">
+                <div>
+                        
+                        <?php $images = ($row->gallery!='')?json_decode($row->gallery):array();?>
+                        <?php if(count($images)>0 && $images[0]!=''){?>
+                        <div style="clear:both;margin-top:10px;"></div>
+
+                        
+                        <div class="panel-body">
 
                 
 
-                <?php foreach($images as $img){?>
+                        <?php foreach($images as $img){?>
 
-                <div class="images-box col-sm-3 col-md-3">
+                        <div class="images-box col-sm-3 col-md-3">
 
-                    <a href="<?php echo base_url('uploads/gallery/'.$img);?>" data-lightbox="detail-gallery" class="gallery-images">
+                        <a href="<?php echo base_url('uploads/gallery/'.$img);?>" data-lightbox="detail-gallery" class="gallery-images">
 
                         <img width="270" height="197" alt="" src="<?php echo base_url('uploads/gallery/'.$img);?>">
 
                         <span class="bg-images"><i class="fa fa-search"></i></span>
 
-                    </a>
+                        </a>
 
-                </div>
+                    </div>
 
-                <?php }?>
+                    <?php }?>
+                </div>    
+
+            
+
+        </div>
+        <?php }?>
+
+
+
+
+
+                
+        
+
+
+
+                
 
             </div>
 
         </div>
-        <?php }?>
+
+
+        
 
 
         <?php if(get_post_meta($row->id,'video_url')!='n/a'){?>
@@ -841,6 +912,12 @@ $curr_lang = ($this->uri->segment(1)!='')?$this->uri->segment(1):'en';
 </div>                
 <script type="text/javascript">
 
+function toggleStreetView() {
+ 
+    $('#details-map2').toggle();
+  
+}
+
     function getUrlVars(url) {
 
         var vars = {};
@@ -952,6 +1029,41 @@ jQuery(document).ready(function(){
         }).change();
 
 });
+
+</script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#horizontalTab').easyResponsiveTabs({
+            type: 'default', //Types: default, vertical, accordion           
+            width: 'auto', //auto or any width like 600px
+            fit: true,   // 100% fit in a container
+            closed: 'accordion', // Start closed if in accordion view
+
+            activate: function(event) { // Callback function if tab is switched
+
+                var $tab = $(this);
+                var $info = $('#tabInfo');
+                var $name = $('span', $info);
+
+                $name.text($tab.text());
+
+                $info.show();
+            
+
+            }
+
+        });
+
+        $('#verticalTab').easyResponsiveTabs({
+            type: 'vertical',
+            width: 'auto',
+            fit: true
+        });
+    });
+
+
 
 </script>
 
