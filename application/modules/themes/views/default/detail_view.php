@@ -491,6 +491,8 @@ $curr_lang = ($this->uri->segment(1)!='')?$this->uri->segment(1):'en';
             <p class="details-title-head"><i class="fa fa-lightbulb-o fa-4"></i>&nbsp;<?php echo lang_key('energy_efficiency')?>: 
                 <?php for($i=1; $i <= 5; $i++){ ?>
                     <i class="fa fa-star <?php echo ($i<=intval($energy_efficiency))?'gold':'';?>"></i> 
+
+                    
                 <?php } ?>
             </p>
 
