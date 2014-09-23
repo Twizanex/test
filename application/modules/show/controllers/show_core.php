@@ -1051,6 +1051,23 @@ class Show_core extends CI_controller {
 		return $info;
 	}
 
+
+	 function follow()
+    {
+    	$user_id = $_POST['id'];
+        
+        $result = $this->show_model->connect($this->session->userdata('user_id'), $user_id);
+        log_message('info', "show_model->connect() - Insert into user_notification:".$result);
+        
+    }
+
+    function un_follow()
+    {
+        $user_id = $_POST['id'];
+        
+        $result = $this->show_model->disconnect($this->session->userdata('user_id'), $user_id);
+    }
+
 }
 
 

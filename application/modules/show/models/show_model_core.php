@@ -1536,6 +1536,45 @@ class Show_model_core extends CI_Model
 		}
 	}
 
+
+    public function connect($user_session, $user_two)
+    {
+        $data = array(
+            'user_session' => $user_session,
+            'user_two' => $user_two,
+            'date' => date('Y-m-d H:i:s')
+        );
+        
+        $this->db->insert('follow', $data);
+        
+        // Create notification
+        if(!$this->db->insert('user_notification',
+                array(
+                    'user_id' => $user_two,
+                    'user_id_created_by' => $user_session,
+                    'user_notification_type' => 'connect',
+                    'update_id' => 0,
+                    'user_notification_read' => 0,
+                    'user_notification_created' => date('Y-m-d H:i:s')
+                    )
+                ))
+            log_message('error', "show_model->connect() - Insert into user_notification:".$this->db->_error_message());
+        
+        
+    }
+
+    public function disconnect($user_session, $user_two)
+    {
+                if(!$this->db->where('user_session', $user_session)->
+                where('user_two', $user_two)->
+                delete('follow'))
+                log_message('error', "show_model->disconnect() - Insert into user_notification:".$this->db->_error_message());
+        
+    }
+
+
+
+
 }
 
 

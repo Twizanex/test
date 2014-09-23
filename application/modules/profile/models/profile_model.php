@@ -17,9 +17,9 @@ class Profile_model extends CI_Model
 		$this->load->database();
 	}
 
-	function get_user_profile($user_name)
+	function get_user_profile($user_id)
 	{
-		$query = $this->db->get_where('users',array('user_name'=>$user_name));
+		$query = $this->db->get_where('users',array('id'=>$user_id));
 		return $query->row();
 	}
 	

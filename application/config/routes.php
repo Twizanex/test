@@ -92,7 +92,7 @@ $route['(:any)/results/(:any)'] = "(:any)/show/result/$2";
 
 $route['(:any)/tags/(:any)'] = "(:any)/show/tag/$2";
 
-
+// http://127.0.0.1/condivisi/test/It/p/admin
 $route['(:any)/p/(:any)'] = "(:any)/show/agentproperties/$2";
 
 

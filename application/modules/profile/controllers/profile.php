@@ -35,6 +35,10 @@ class Profile extends CI_controller {
 
 		$this->active_theme = get_active_theme();
 
+		if (!is_loggedin()){
+			redirect(site_url(''));
+		}
+
 		//$this->load->model('show_model');
 		$this->load->model('profile_model');
         $this->load->model('user/user_model');
@@ -131,7 +135,7 @@ class Profile extends CI_controller {
 
 
 
-		$value['profile']	= $this->profile_model->get_user_profile($this->session->userdata('username'));  
+		$value['profile']	= $this->profile_model->get_user_profile($this->session->userdata('user_id'));  
 
 		$data['title']		= 'Edit profile';
 

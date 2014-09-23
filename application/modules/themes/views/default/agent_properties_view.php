@@ -1,3 +1,36 @@
+<script src="<?php echo theme_url();?>/assets/js/top_follow.js"></script>
+<style type="text/css">
+
+.follow_b
+{
+    border:#dedede solid 2px;
+    background-color:#f5f5f5;
+    color:#000;
+    font-size:12px;
+    font-weight:bold;
+    padding: 5px;
+    -moz-border-radius: 6px; -webkit-border-radius: 6px; 
+}
+.youfollowing_b
+{
+    font-size:14px; color:#006600; font-weight:bold;
+}
+.remove_b
+{
+    border:#dedede solid 2px;
+    background-color:#f5f5f5;
+    color:#CC3333;
+    font-size:12px;
+    padding-left:4px ;
+    padding-right:4px ;
+    font-weight:bold;
+    margin-left:240px;
+    -moz-border-radius: 6px; -webkit-border-radius: 6px; 
+}
+
+
+</style>
+
 <?php 
 
 $curr_lang = ($this->uri->segment(1)!='')?$this->uri->segment(1):'en';
@@ -54,7 +87,7 @@ if($user->num_rows()<=0){
 
                 </div>
 
-
+ <?php follow_button($user->id); ?>
 
                 <div class="follow-agent clearfix">
                     <ul class="social-networks clearfix">
