@@ -1,15 +1,15 @@
 <style>
 
 
-@import '../../../assets/library/icons/fontawesome/assets/css/font-awesome.min.css';
-@import '../../../assets/library/icons/glyphicons/assets/css/glyphicons_regular.css';
-@import '../../../assets/library/icons/glyphicons/assets/css/glyphicons_social.css';
-@import '../../../assets/library/icons/glyphicons/assets/css/glyphicons_filetypes.css';
+@import '<?php echo theme_url();?>/assets/icons/fontawesome/assets/css/font-awesome.min.css';
+@import '<?php echo theme_url();?>/assets/icons/glyphicons/assets/css/glyphicons_regular.css';
+@import '<?php echo theme_url();?>/assets/icons/glyphicons/assets/css/glyphicons_social.css';
+@import '<?php echo theme_url();?>/assets/icons/glyphicons/assets/css/glyphicons_filetypes.css';
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,700);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
-@import '../../../assets/plugins/forms_elements_bootstrap-datepicker/css/bootstrap-datepicker.css';
-@import '../../../assets/js/forms_editors_wysihtml5/css/bootstrap-wysihtml5-0.0.2.css';
-@import '../../../assets/plugins/forms_elements_uniform/css/uniform.default.css';
+@import '<?php echo theme_url();?>/assets/plugins/forms_elements_bootstrap-datepicker/css/bootstrap-datepicker.css';
+
+@import '<?php echo theme_url();?>/assets/plugins/forms_elements_uniform/css/uniform.default.css';
 /* --- LOADING [css.bootstrap.min] from assets/library/bootstrap/css/bootstrap.min.css */
 /* --- LOADING [css.font-awesome.min] from assets/library/icons/fontawesome/assets/css/font-awesome.min.css */
 /* --- LOADING [css.glyphicons_regular] from assets/library/icons/glyphicons/assets/css/glyphicons_regular.css */
@@ -3515,7 +3515,7 @@ textarea {
                             <!-- Group -->
                             <div class="control-group">
                                 <label class="control-label">About me</label>
-                                <div class="controls">
+                                <div class="controls-uno">
                                     <textarea id="mustHaveId" class="wysihtml5 form-control" rows="5">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</textarea>
                                 </div>
                             </div>
@@ -3747,4 +3747,8 @@ textarea {
    
 </div>
 
-          <script src="<?php echo theme_url();?>/assets/js/forms_editors_wysihtml5/js/wysihtml5-0.3.0_rc2.min.js"></script>
+          <script src="<?php echo theme_url();?>/assets/plugins/forms_editors_wysihtml5/js/wysihtml5-0.3.0_rc2.min.js"></script>
+          <script src="<?php echo theme_url();?>/assets/plugins/forms_elements_bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="<?php echo theme_url();?>/assets/plugins/forms_elements_bootstrap-datepicker/bootstrap-datepicker.init.js"></script>
+<script src="<?php echo theme_url();?>/assets/plugins/forms_elements_uniform/js/jquery.uniform.min.js"></script>
+<script src="<?php echo theme_url();?>/assets/plugins/forms_elements_uniform/uniform.init.js"></script>
