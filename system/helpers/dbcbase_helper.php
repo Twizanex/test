@@ -196,6 +196,23 @@ if ( ! function_exists('get_user_email_by_id'))
     }
 }
 
+if ( ! function_exists('get_user_name_by_id'))
+{
+    function get_user_name_by_id($id)
+    {
+        $CI = get_instance();
+        $CI->load->database();
+        $query = $CI->db->get_where('users',array('id'=>$id));
+        if($query->num_rows()>0)
+        {
+            $row = $query->row();
+            return $row->user_name;
+        }
+        else
+            return 'N/A';
+    }
+}
+
 if ( ! function_exists('get_user_fullname_by_id'))
 {
     function get_user_fullname_by_id($id)

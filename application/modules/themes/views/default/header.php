@@ -1,197 +1,197 @@
 <!-- Fixed navbar -->
 
-    <div class="navbar navbar-inverse navbar-fixed-top headroom" >
+<div class="navbar navbar-inverse navbar-fixed-top headroom" >
 
-        <div class="container">
+    <div class="container">
 
-            <div class="navbar-header">
+        <div class="navbar-header">
 
-                <!-- Button for smallest screens -->
+            <!-- Button for smallest screens -->
 
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
 
-                <a class="navbar-brand" href="<?php echo site_url();?>"><img src="<?php echo get_site_logo();?>" alt="Logo" style="height:50px"></a>
+            <a class="navbar-brand" href="<?php echo site_url();?>"><img src="<?php echo get_site_logo();?>" alt="Logo" style="height:50px"></a>
 
-            </div>
+        </div>
 
-            <div class="navbar-collapse collapse">
+        <div class="navbar-collapse collapse">
 
 
 
-                <ul class="nav navbar-nav pull-right">
+            <ul class="nav navbar-nav pull-right">
 
                 
 
                 <?php
 
-                        $CI = get_instance();
+                $CI = get_instance();
 
-                        $CI->load->model('admin/page_model');
+                $CI->load->model('admin/page_model');
 
-                        $CI->page_model->init();
+                $CI->page_model->init();
 
-                    ?>
+                ?>
 
 
 
-                        <?php 
+                <?php 
 
-                            $alias = (isset($alias))?$alias:'';
+                $alias = (isset($alias))?$alias:'';
 
-                            foreach ($CI->page_model->get_menu() as $li) 
+                foreach ($CI->page_model->get_menu() as $li) 
 
-                            {
+                {
 
-                                if($li->parent==0)
+                    if($li->parent==0)
 
-                                $CI->page_model->render_top_menu($li->id,0,$alias);
+                        $CI->page_model->render_top_menu($li->id,0,$alias);
 
-                            }
+                }
+
+                ?>
+
+
+
+                <li class="dropdown">
+
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+                        <?php echo lang_key('type');?> <b class="caret"></b>
+
+                    </a>
+
+                    <ul class="dropdown-menu">
+
+                        <?php
+
+                        $filter_options = array();
+
+                        $this->load->config('realcon');
+                        $custom_types = $this->config->item('property_types');
+                        if(is_array($custom_types)) foreach ($custom_types as $key => $custom_type) {
+                            if($custom_type['title']=='DBC_TYPE_APARTMENT')
+                                $filter_options[$custom_type['title']] = 'apartment';
+                            else if($custom_type['title']=='DBC_TYPE_HOUSE')
+                                $filter_options[$custom_type['title']] = 'house';
+                            else if($custom_type['title']=='DBC_TYPE_LAND')
+                                $filter_options[$custom_type['title']] = 'land';
+                            else if($custom_type['title']=='DBC_TYPE_COMSPACE')
+                                $filter_options[$custom_type['title']] = 'com_space';
+                            else if($custom_type['title']=='DBC_TYPE_CONDO')
+                                $filter_options[$custom_type['title']] = 'condo';
+                            else if($custom_type['title']=='DBC_TYPE_VILLA')
+                                $filter_options[$custom_type['title']] = 'villa';
+                            else
+                              $filter_options[$custom_type['title']] = urlencode($custom_type['title']);
+                      }
+
+                      foreach ($filter_options as $k=>$v) {
 
                         ?>
 
+                        <li class="<?php echo is_active_menu('show/type/'.$v);?>">
 
+                            <a href="<?php echo site_url('show/type/'.$v);?>">
 
-                        <li class="dropdown">
+                            </i>&nbsp;<?php echo lang_key($k);?>
 
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        </a>
 
-                                <?php echo lang_key('type');?> <b class="caret"></b>
+                    </li>
 
-                            </a>
+                    <?php
 
-                            <ul class="dropdown-menu">
+                }
 
-                                <?php
+                ?>
 
-                                $filter_options = array();
+                <li style="border-bottom:1px solid #fff;height:0px;"></li>
 
-                                $this->load->config('realcon');
-                                $custom_types = $this->config->item('property_types');
-                                if(is_array($custom_types)) foreach ($custom_types as $key => $custom_type) {
-                                    if($custom_type['title']=='DBC_TYPE_APARTMENT')
-                                        $filter_options[$custom_type['title']] = 'apartment';
-                                    else if($custom_type['title']=='DBC_TYPE_HOUSE')
-                                        $filter_options[$custom_type['title']] = 'house';
-                                    else if($custom_type['title']=='DBC_TYPE_LAND')
-                                        $filter_options[$custom_type['title']] = 'land';
-                                    else if($custom_type['title']=='DBC_TYPE_COMSPACE')
-                                        $filter_options[$custom_type['title']] = 'com_space';
-                                    else if($custom_type['title']=='DBC_TYPE_CONDO')
-                                        $filter_options[$custom_type['title']] = 'condo';
-                                    else if($custom_type['title']=='DBC_TYPE_VILLA')
-                                        $filter_options[$custom_type['title']] = 'villa';
-                                    else
-                                      $filter_options[$custom_type['title']] = urlencode($custom_type['title']);
-                                }
+                <?php
 
-                                foreach ($filter_options as $k=>$v) {
+                $filter_options = array('DBC_PURPOSE_SALE'=>'sale',
+                    'DBC_PURPOSE_RENT'=>'rent',
+                    'DBC_PURPOSE_BOTH'=>'sale_rent');
 
-                                ?>
 
-                                <li class="<?php echo is_active_menu('show/type/'.$v);?>">
 
-                                    <a href="<?php echo site_url('show/type/'.$v);?>">
+                foreach ($filter_options as $k=>$v) {
 
-                                        </i>&nbsp;<?php echo lang_key($k);?>
+                    ?>
 
-                                    </a>
+                    <li class="<?php echo is_active_menu('show/purpose/'.$v);?>">
 
-                                </li>
+                        <a href="<?php echo site_url('show/purpose/'.$v);?>">
 
-                                <?php
+                        </i>&nbsp;<?php echo lang_key($k);?>
 
-                                }
+                    </a>
 
-                                ?>
+                </li>
 
-                                <li style="border-bottom:1px solid #fff;height:0px;"></li>
+                <?php
 
-                                <?php
+            }
 
-                                $filter_options = array('DBC_PURPOSE_SALE'=>'sale',
-                                    'DBC_PURPOSE_RENT'=>'rent',
-                                    'DBC_PURPOSE_BOTH'=>'sale_rent');
+            ?>
 
+        </ul>    
 
+    </li>    
 
-                                foreach ($filter_options as $k=>$v) {
+    <li class="dropdown">
 
-                                ?>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
-                                <li class="<?php echo is_active_menu('show/purpose/'.$v);?>">
+            <i class="fa fa-globe"></i> <b class="caret"></b>
 
-                                    <a href="<?php echo site_url('show/purpose/'.$v);?>">
+        </a>
 
-                                        </i>&nbsp;<?php echo lang_key($k);?>
 
-                                    </a>
 
-                                </li>
+        <?php
 
-                                <?php
+        $CI         = get_instance();
 
-                                }
+        $uri        = current_url();
 
-                                ?>
+        $curr_lang  = ($CI->uri->segment(1)!='')?$CI->uri->segment(1):'en';
 
-                            </ul>    
 
-                        </li>    
 
-                        <li class="dropdown">
+        if($CI->uri->segment(1)=='')
 
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            $uri .= '/en';
 
-                                <i class="fa fa-globe"></i> <b class="caret"></b>
 
-                            </a>
 
+        $CI->load->model('admin/system_model');
 
+        $query = $CI->system_model->get_all_langs();
 
-                            <?php
+        echo '<ul class="dropdown-menu lang-menu">';
 
-                            $CI         = get_instance();
+        $url = $uri;
 
-                            $uri        = current_url();
+        foreach ($query->result() as $lang) {   
 
-                            $curr_lang  = ($CI->uri->segment(1)!='')?$CI->uri->segment(1):'en';
+            $uri = str_replace('/'.$curr_lang,'/'.$lang->short_name,$url);
 
+            $sel = ($curr_lang==$lang->short_name)?'active':'';
 
+            echo '<li class="'.$sel.'"><a href="'.$uri.'">'.ucwords($lang->lang).'</a></li>';
 
-                            if($CI->uri->segment(1)=='')
+        }
 
-                                $uri .= '/en';
+        echo '</ul>';
 
 
 
-                            $CI->load->model('admin/system_model');
+        ?>
 
-                            $query = $CI->system_model->get_all_langs();
+    </li>
 
-                            echo '<ul class="dropdown-menu lang-menu">';
-
-                            $url = $uri;
-
-                            foreach ($query->result() as $lang) {   
-
-                                $uri = str_replace('/'.$curr_lang,'/'.$lang->short_name,$url);
-
-                                $sel = ($curr_lang==$lang->short_name)?'active':'';
-
-                                echo '<li class="'.$sel.'"><a href="'.$uri.'">'.ucwords($lang->lang).'</a></li>';
-
-                            }
-
-                            echo '</ul>';
-
-
-
-                            ?>
-
-                        </li>
-
-                        
+    
 
                    <!--  <li class="active"><a href="#">Home</a></li>
 
@@ -229,64 +229,112 @@
 
                     <?php }else{?>
 
-                        
+                    
 
-                        <li class="dropdown">
+                    <li class="dropdown" id="secondary-nav">
 
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
-                                <?php echo lang_key('Profile');?> <b class="caret"></b>
+                            <?php echo lang_key('Profile');
+
+                            $querys = get_notific(user_session_id()); 
+                            
+                            $notifiche= count($querys);
+                            echo $notifiche;
+                            ?> <b class="caret"></b>
+
+                        </a>
+
+                        <ul class="dropdown-menu" id="secondary-nav">
+                            <?php 
+                            if ($notifiche > 0){
+                               
+                                foreach ($querys as $notific) {   
+
+                                    
+
+                                    echo '<li class="">
+
+                                    <a href="'.site_url().'/p/'.get_user_name_by_id($notific['user_id_created_by']).'">
+
+                                    </i> '.get_user_fullname_by_id($notific['user_id_created_by']).' '.lang_key($notific['user_notification_type']).'
+
+                                    </a>
+
+                                    </li>';
+
+                                }
+                            }
+                            ?>
+                            <li class="">
+
+                                <a href="<?php echo site_url('profile');?>">
+
+                                </i> <?php echo lang_key('Profile');?>
 
                             </a>
 
-                            <ul class="dropdown-menu">
+                        </li>
+                        <li class="">
 
-                                 <li class="">
+                            <a href="<?php echo site_url('show/type/'.$v);?>">
 
-                                    <a href="<?php echo site_url('profile');?>">
+                            </i> <?php echo lang_key('Profile');?>
 
-                                        </i> <?php echo lang_key('Profile');?>
+                        </a>
 
-                                    </a>
-
-                                 </li>
-                                 <li class="">
-
-                                    <a href="<?php echo site_url('show/type/'.$v);?>">
-
-                                        </i> <?php echo lang_key('Profile');?>
-
-                                    </a>
-
-                                </li>
-
-                            </ul>
-
-                                <?php 
-
-
-                                
-
-                        if(!is_admin()){?>
-
-                        <li><a class="btn" href="<?php echo site_url('admin/realestate/allestatesagent');?>"><?php echo lang_key('agent_panel'); ?></a></li>
-
-                        <?php }else{?>
-
-                        <li><a class="btn" href="<?php echo site_url('admin');?>"><?php echo lang_key('admin_panel'); ?></a></li>
-
-                        <?php }?>
-
-                    <li><a class="btn" href="<?php echo site_url('account/logout');?>"><?php echo lang_key('logout'); ?></a></li>
-
-                    <?php }?>
+                    </li>
 
                 </ul>
 
-            </div><!--/.nav-collapse -->
+                <?php 
 
-        </div>
 
-    </div> 
+                
 
-    <!-- /.navbar -->
+                if(!is_admin()){?>
+
+                <li><a class="btn" href="<?php echo site_url('admin/realestate/allestatesagent');?>"><?php echo lang_key('agent_panel'); ?></a></li>
+
+                <?php }else{?>
+
+                <li><a class="btn" href="<?php echo site_url('admin');?>"><?php echo lang_key('admin_panel'); ?></a></li>
+
+                <?php }?>
+
+                <li><a class="btn" href="<?php echo site_url('account/logout');?>"><?php echo lang_key('logout'); ?></a></li>
+
+                <?php }?>
+
+            </ul>
+
+        </div><!--/.nav-collapse -->
+
+    </div>
+
+</div> 
+
+<!-- /.navbar -->
+
+
+<script>
+$(document).ready(function(){
+    $("#secondary-nav").click(function(){
+        
+
+
+
+        $.ajax({
+            type: "POST",
+            url: "/condivisi/test/index.php/en/ajax/read_notific",
+
+            success: function(){
+              
+            }
+
+        });
+    });
+});
+
+
+</script>

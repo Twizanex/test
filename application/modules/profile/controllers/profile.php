@@ -113,6 +113,24 @@ class Profile extends CI_controller {
 
 	}
 
+	public function timeline($start='0')
+
+	{
+
+        $value['query']			= $this->profile_model->get_users_by_range($start,$this->PER_PAGE,'id');
+
+        $total 					= $this->profile_model->count_users();
+
+        $value['pages']			= configPagination('show/agent/',$total,4,$this->PER_PAGE);
+
+		$data['content'] 	= load_view('timeline_view',$value,TRUE);
+
+		$data['alias']	    = 'agent';
+
+		load_template($data,$this->active_theme);	
+
+	}
+
 
 	public function subscription($start='0')
 

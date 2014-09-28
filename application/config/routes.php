@@ -97,6 +97,7 @@ $route['(:any)/p/(:any)'] = "(:any)/show/agentproperties/$2";
 
 
 
+
 $route['(:any)/property/(:any)'] = "(:any)/show/detail/$2";
 
 $route['(:any)/embed/(:any)'] = "(:any)/show/embed/$2";

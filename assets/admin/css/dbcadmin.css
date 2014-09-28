@@ -4489,13 +4489,13 @@ border-radius: 10px;
 	color:#FF0000 !important;
 }
 .navbar {
-	background:#FFFFFF;
+	background:#272727;
 }
 .dbc-nav>li>a>.badge {
 	border-color:#58b1fc
 }
 .navbar .navbar-btn,.navbar .navbar-btn:hover,.navbar .navbar-btn:focus,.navbar .navbar-btn.collapsed:hover,.navbar .navbar-btn.collapsed:focus,.dbc-nav>li.open,.dbc-nav>li.active,.dbc-nav>li:hover,.dropdown-navbar>li.nav-header {
-	background-color:#2C7F99
+	background-color:#848484
 }
 .dropdown-navbar>li.nav-header:hover {
 	background-color:#2C7F99 !important
@@ -4852,7 +4852,7 @@ border-radius: 10px;
 }
 @media(max-width:979px) {
 	#sidebar,#nav-horizontal.nav-xs,.navbar-blue #nav-horizontal.nav-xs,.skin-blue #nav-horizontal.nav-xs,.sidebar-blue #sidebar {
-		background-color:#2C7F99
+		background-color:#272727;
 	}
 	.skin-red #sidebar,.navbar-red #nav-horizontal.nav-xs,.skin-red #nav-horizontal.nav-xs,.sidebar-red #sidebar {
 		background-color:#e85757

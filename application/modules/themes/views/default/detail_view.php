@@ -1,10 +1,41 @@
 <link rel="stylesheet" href="<?php echo theme_url();?>/assets/css/lightbox.css">
 <script src="<?php echo theme_url();?>/assets/js/lightbox.min.js"></script>
 
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="<?php echo theme_url();?>/assets/js/jquery.easypiechart.min.js"></script>
+
+
+
 <link type="text/css" rel="stylesheet" href="<?php echo theme_url();?>/assets/css/easy-responsive-tabs.css" />
 <script src="<?php echo theme_url();?>/assets/js/easyResponsiveTabs.js" type="text/javascript"></script>
 
 <style type="text/css">
+.chart {
+  position: relative;
+  display: inline-block;
+  width: 110px;
+  height: 110px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+.chart canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.percent {
+  display: inline-block;
+  line-height: 110px;
+  z-index: 2;
+}
+
+
+
+
+
+
 
 
 .resp-tab-active {
@@ -573,6 +604,16 @@ google.maps.event.addDomListener(window, 'load', initialize);
                         <i class="fa fa-star <?php echo ($i<=intval($energy_efficiency))?'gold':'';?>"></i> 
                         <?php } ?>
                     </p>
+<p>
+<div class="chart" data-percent="56.4" data-line-width="16" data-loop="false" data-size="188" style="width: 188px; height: 188px; line-height: 188px;">
+                    
+                        <span class="h2 step"> A+</span>
+
+                    <canvas width="188" height="188"></canvas></div>
+
+
+                       
+</p>
 
                 </div>
 
@@ -1092,6 +1133,25 @@ $(document).ready(function () {
 
 
 </script>
+
+
+<script>
+    $(function() {
+        $('.chart').easyPieChart({
+barColor: '#A0CE00',
+           
+lineWidth: '6',
+
+lineCap: 'square',
+size: '200', 
+ animate: 5000,
+            onStep: function(from, to, percent) {
+              //  $(this.el).find('.percent').text(Math.round(percent));
+            }
+        });
+        
+    });
+    </script>
 
 <?php
 
