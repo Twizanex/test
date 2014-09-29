@@ -863,6 +863,12 @@ class Show_core extends CI_controller {
 
 	{	
 
+		
+
+
+
+
+
 		$value['user']		= $this->show_model->get_user_by_username($user_name);	
   		
   		$user = $value['user']->row();
@@ -878,6 +884,15 @@ class Show_core extends CI_controller {
         $total 					= $this->show_model->count_all_estates_agent($user_id);
 
 		$value['pages']			= configPagination('show/agentproperties/'.$user_id,$total,5,$this->PER_PAGE);
+
+
+
+
+//social load info
+            $this->load->model('update_model');
+            $values['updates'] = $this->update_model->getViewerUpdates($user_id, $this->PER_PAGE);
+
+
 
 
 
