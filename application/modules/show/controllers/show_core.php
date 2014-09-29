@@ -890,7 +890,7 @@ class Show_core extends CI_controller {
 
 //social load info
             $this->load->model('update_model');
-            $values['updates'] = $this->update_model->getViewerUpdates($user_id, $this->PER_PAGE);
+            $value['updates'] = $this->update_model->getViewerUpdates($user_id, '0');
 
 
 

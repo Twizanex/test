@@ -72,6 +72,80 @@ if ( ! function_exists('user_session_id'))
 
 }
 
+if ( ! function_exists('user_update'))
+{
+    function user_update($username, $update, $pos = 'entry')
+    {
+        if($pos)
+            return base_url("p/$username/$update#{$pos}");
+        else
+            return base_url("p/$username/$update");
+    }
+}
+
+
+
+/**
+ * Share Button
+ *
+ * Share button for facebook, google+
+ *
+ * @access	public
+ * @param	string	username
+ * @param	int	update ID
+ * @return	string
+ */
+if ( ! function_exists('share_button'))
+{
+    function share_button($target, $username, $update, $site_title = false, $comment = false, $image = false, $twitter = false)
+    {
+        if($comment)
+            if($username == $twitter)
+                $url_comment = htmlspecialchars_decode(strip_tags($comment));
+            else {
+                $url_comment = preg_replace('#@([^>]*)#i', '$1', strip_tags($comment));
+                $url_comment = htmlspecialchars_decode($url_comment);
+            }
+        
+        switch ($target) {
+            case 'styh':
+                $link = base_url()."share/local/".$update;
+                $title = lang_key('home_share_showthatyouhelp');
+                return '<a href="'.$link.'" title="'.$title.'" class="entry-btn gradient-btn local-share-action"><i class="styh-btn"></i></a>';
+            
+            case 'facebook':
+                $link = 'http://www.facebook.com/dialog/feed?app_id=251130335006292&link='.
+                    urlencode(user_update($username, $update, false)).
+                    ($image?'&picture='.urlencode($image):'').
+                    ($site_title?'&name='.urlencode($site_title):'').
+                    ('&caption='.urlencode($username.'\'s update on showthatyouhelp.com')).
+                    ($comment?'&description='.urlencode($url_comment):'').
+                    '&redirect_uri='.urlencode(user_update($username, $update, false));
+                $title = lang_key('home_share_facebook');
+
+                return '<a href="'.$link.'" title="'.$title.'" class="glyphicons glyphicons-social standard primary facebook" target="_blank"><i></i>Facebook</a>';
+
+            case 'gplus':
+                $link = "https://plus.google.com/share?url=".urlencode(user_update($username, $update, false));
+                $title = lang_key('home_share_google');
+                return '<a href="'.$link.'" title="'.$title.'" class="entry-btn gradient-btn remote-share-action" target="_blank"><i class="gplus-btn"></i>Google</a>';
+            
+            case 'twitter':
+                if($comment){
+                    $text = character_limiter($url_comment, 90, '...');
+                } else {
+                    $text = $username.'\'s update';
+                }
+                
+                $link = "https://twitter.com/share?url=".urlencode(user_update($username, $update, false)).
+                        '&via=showthatyouhelp'.
+                        ($text?'&text='.urlencode($text):'');
+                $title = lang_key('home_share_twitter');
+                return '<a href="'.$link.'" title="'.$title.'" class="entry-btn gradient-btn remote-share-action" target="_blank"><i class="twitter-btn"></i>Twitter</a>';
+        }
+    }
+}
+
 
 
 

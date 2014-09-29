@@ -57566,3 +57566,137 @@ DEBUG - 2014-09-28 21:57:02 --> Helper loaded: file_helper
 DEBUG - 2014-09-28 21:57:02 --> File loaded: application/modules/themes/views/default/template_view.php
 DEBUG - 2014-09-28 21:57:02 --> Final output sent to browser
 DEBUG - 2014-09-28 21:57:02 --> Total execution time: 0.0370
+DEBUG - 2014-09-28 22:09:55 --> Config Class Initialized
+DEBUG - 2014-09-28 22:09:55 --> Hooks Class Initialized
+DEBUG - 2014-09-28 22:09:55 --> Utf8 Class Initialized
+DEBUG - 2014-09-28 22:09:55 --> UTF-8 Support Enabled
+DEBUG - 2014-09-28 22:09:55 --> URI Class Initialized
+DEBUG - 2014-09-28 22:09:55 --> Router Class Initialized
+DEBUG - 2014-09-28 22:09:55 --> Output Class Initialized
+DEBUG - 2014-09-28 22:09:55 --> Security Class Initialized
+DEBUG - 2014-09-28 22:09:55 --> Input Class Initialized
+DEBUG - 2014-09-28 22:09:55 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-09-28 22:09:55 --> Language Class Initialized
+DEBUG - 2014-09-28 22:09:55 --> Language Class Initialized
+DEBUG - 2014-09-28 22:09:55 --> Config Class Initialized
+DEBUG - 2014-09-28 22:09:55 --> Loader Class Initialized
+DEBUG - 2014-09-28 22:09:55 --> Loader Class Initialized
+DEBUG - 2014-09-28 22:09:55 --> Helper loaded: url_helper
+DEBUG - 2014-09-28 22:09:55 --> Helper loaded: cookie_helper
+DEBUG - 2014-09-28 22:09:55 --> Helper loaded: dbcbase_helper
+DEBUG - 2014-09-28 22:09:55 --> Helper loaded: dbcmemento_helper
+DEBUG - 2014-09-28 22:09:55 --> Helper loaded: follow_helper
+DEBUG - 2014-09-28 22:09:55 --> Helper loaded: notification_helper
+DEBUG - 2014-09-28 22:09:55 --> Session Class Initialized
+DEBUG - 2014-09-28 22:09:55 --> Helper loaded: string_helper
+DEBUG - 2014-09-28 22:09:55 --> Database Driver Class Initialized
+DEBUG - 2014-09-28 22:09:55 --> Session routines successfully run
+DEBUG - 2014-09-28 22:09:55 --> Helper loaded: form_helper
+DEBUG - 2014-09-28 22:09:55 --> Form Validation Class Initialized
+DEBUG - 2014-09-28 22:09:55 --> Controller Class Initialized
+DEBUG - 2014-09-28 22:09:55 --> Model Class Initialized
+DEBUG - 2014-09-28 22:09:55 --> File loaded: application/modules/profile/models/profile_model.php
+DEBUG - 2014-09-28 22:09:55 --> Model Class Initialized
+DEBUG - 2014-09-28 22:09:55 --> File loaded: application/modules/user/models/user_model.php
+DEBUG - 2014-09-28 22:09:55 --> Model Class Initialized
+DEBUG - 2014-09-28 22:09:55 --> Encrypt Class Initialized
+DEBUG - 2014-09-28 22:09:55 --> Helper loaded: text_helper
+DEBUG - 2014-09-28 22:09:55 --> Pagination Class Initialized
+DEBUG - 2014-09-28 22:09:55 --> Helper loaded: inflector_helper
+DEBUG - 2014-09-28 22:09:55 --> Helper loaded: file_helper
+DEBUG - 2014-09-28 22:09:55 --> Config file loaded: application/config/realcon.php
+DEBUG - 2014-09-28 22:09:55 --> File loaded: application/modules/show/models/show_model.php
+DEBUG - 2014-09-28 22:09:55 --> Model Class Initialized
+DEBUG - 2014-09-28 22:09:55 --> File loaded: application/modules/themes/views/default/profile_view.php
+DEBUG - 2014-09-28 22:09:55 --> File loaded: application/modules/admin/models/page_model.php
+DEBUG - 2014-09-28 22:09:55 --> Model Class Initialized
+DEBUG - 2014-09-28 22:09:55 --> File loaded: application/modules/admin/models/system_model.php
+DEBUG - 2014-09-28 22:09:55 --> Model Class Initialized
+DEBUG - 2014-09-28 22:09:55 --> File loaded: application/modules/themes/views/default/template_view.php
+DEBUG - 2014-09-28 22:09:55 --> Language file loaded: language/english/profiler_lang.php
+DEBUG - 2014-09-28 22:09:55 --> Final output sent to browser
+DEBUG - 2014-09-28 22:09:55 --> Total execution time: 0.0717
+DEBUG - 2014-09-28 22:09:56 --> Config Class Initialized
+DEBUG - 2014-09-28 22:09:56 --> Hooks Class Initialized
+DEBUG - 2014-09-28 22:09:56 --> Utf8 Class Initialized
+DEBUG - 2014-09-28 22:09:56 --> UTF-8 Support Enabled
+DEBUG - 2014-09-28 22:09:56 --> URI Class Initialized
+DEBUG - 2014-09-28 22:09:56 --> Router Class Initialized
+DEBUG - 2014-09-28 22:09:56 --> Output Class Initialized
+DEBUG - 2014-09-28 22:09:56 --> Security Class Initialized
+DEBUG - 2014-09-28 22:09:56 --> Input Class Initialized
+DEBUG - 2014-09-28 22:09:56 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-09-28 22:09:56 --> Language Class Initialized
+DEBUG - 2014-09-28 22:09:56 --> Language Class Initialized
+DEBUG - 2014-09-28 22:09:56 --> Config Class Initialized
+DEBUG - 2014-09-28 22:09:56 --> Loader Class Initialized
+DEBUG - 2014-09-28 22:09:56 --> Loader Class Initialized
+DEBUG - 2014-09-28 22:09:56 --> Helper loaded: url_helper
+DEBUG - 2014-09-28 22:09:56 --> Helper loaded: cookie_helper
+DEBUG - 2014-09-28 22:09:56 --> Helper loaded: dbcbase_helper
+DEBUG - 2014-09-28 22:09:56 --> Helper loaded: dbcmemento_helper
+DEBUG - 2014-09-28 22:09:56 --> Helper loaded: follow_helper
+DEBUG - 2014-09-28 22:09:56 --> Helper loaded: notification_helper
+DEBUG - 2014-09-28 22:09:56 --> Session Class Initialized
+DEBUG - 2014-09-28 22:09:56 --> Helper loaded: string_helper
+DEBUG - 2014-09-28 22:09:56 --> Database Driver Class Initialized
+DEBUG - 2014-09-28 22:09:56 --> Session routines successfully run
+DEBUG - 2014-09-28 22:09:56 --> Helper loaded: form_helper
+DEBUG - 2014-09-28 22:09:56 --> Form Validation Class Initialized
+DEBUG - 2014-09-28 22:09:56 --> Controller Class Initialized
+DEBUG - 2014-09-28 22:09:56 --> File loaded: application/modules/themes/views/default/404_view.php
+DEBUG - 2014-09-28 22:09:56 --> Model Class Initialized
+DEBUG - 2014-09-28 22:09:56 --> File loaded: application/modules/show/models/show_model.php
+DEBUG - 2014-09-28 22:09:56 --> Model Class Initialized
+DEBUG - 2014-09-28 22:09:56 --> File loaded: application/modules/admin/models/page_model.php
+DEBUG - 2014-09-28 22:09:56 --> Model Class Initialized
+DEBUG - 2014-09-28 22:09:56 --> Config file loaded: application/config/realcon.php
+DEBUG - 2014-09-28 22:09:56 --> File loaded: application/modules/admin/models/system_model.php
+DEBUG - 2014-09-28 22:09:56 --> Model Class Initialized
+DEBUG - 2014-09-28 22:09:56 --> Helper loaded: inflector_helper
+DEBUG - 2014-09-28 22:09:56 --> Helper loaded: file_helper
+DEBUG - 2014-09-28 22:09:56 --> File loaded: application/modules/themes/views/default/template_view.php
+DEBUG - 2014-09-28 22:09:56 --> Final output sent to browser
+DEBUG - 2014-09-28 22:09:56 --> Total execution time: 0.0281
+DEBUG - 2014-09-28 22:09:59 --> Config Class Initialized
+DEBUG - 2014-09-28 22:09:59 --> Hooks Class Initialized
+DEBUG - 2014-09-28 22:09:59 --> Utf8 Class Initialized
+DEBUG - 2014-09-28 22:09:59 --> UTF-8 Support Enabled
+DEBUG - 2014-09-28 22:09:59 --> URI Class Initialized
+DEBUG - 2014-09-28 22:09:59 --> Router Class Initialized
+DEBUG - 2014-09-28 22:09:59 --> Output Class Initialized
+DEBUG - 2014-09-28 22:09:59 --> Security Class Initialized
+DEBUG - 2014-09-28 22:09:59 --> Input Class Initialized
+DEBUG - 2014-09-28 22:09:59 --> Global POST and COOKIE data sanitized
+DEBUG - 2014-09-28 22:09:59 --> Language Class Initialized
+DEBUG - 2014-09-28 22:09:59 --> Language Class Initialized
+DEBUG - 2014-09-28 22:09:59 --> Config Class Initialized
+DEBUG - 2014-09-28 22:09:59 --> Loader Class Initialized
+DEBUG - 2014-09-28 22:09:59 --> Loader Class Initialized
+DEBUG - 2014-09-28 22:09:59 --> Helper loaded: url_helper
+DEBUG - 2014-09-28 22:09:59 --> Helper loaded: cookie_helper
+DEBUG - 2014-09-28 22:09:59 --> Helper loaded: dbcbase_helper
+DEBUG - 2014-09-28 22:09:59 --> Helper loaded: dbcmemento_helper
+DEBUG - 2014-09-28 22:09:59 --> Helper loaded: follow_helper
+DEBUG - 2014-09-28 22:09:59 --> Helper loaded: notification_helper
+DEBUG - 2014-09-28 22:09:59 --> Session Class Initialized
+DEBUG - 2014-09-28 22:09:59 --> Helper loaded: string_helper
+DEBUG - 2014-09-28 22:09:59 --> Database Driver Class Initialized
+DEBUG - 2014-09-28 22:09:59 --> Session routines successfully run
+DEBUG - 2014-09-28 22:09:59 --> Helper loaded: form_helper
+DEBUG - 2014-09-28 22:09:59 --> Form Validation Class Initialized
+DEBUG - 2014-09-28 22:09:59 --> Controller Class Initialized
+DEBUG - 2014-09-28 22:09:59 --> File loaded: application/modules/themes/views/default/404_view.php
+DEBUG - 2014-09-28 22:09:59 --> Model Class Initialized
+DEBUG - 2014-09-28 22:09:59 --> File loaded: application/modules/show/models/show_model.php
+DEBUG - 2014-09-28 22:09:59 --> Model Class Initialized
+DEBUG - 2014-09-28 22:09:59 --> File loaded: application/modules/admin/models/page_model.php
+DEBUG - 2014-09-28 22:09:59 --> Model Class Initialized
+DEBUG - 2014-09-28 22:09:59 --> Config file loaded: application/config/realcon.php
+DEBUG - 2014-09-28 22:09:59 --> File loaded: application/modules/admin/models/system_model.php
+DEBUG - 2014-09-28 22:09:59 --> Model Class Initialized
+DEBUG - 2014-09-28 22:09:59 --> Helper loaded: inflector_helper
+DEBUG - 2014-09-28 22:09:59 --> Helper loaded: file_helper
+DEBUG - 2014-09-28 22:09:59 --> File loaded: application/modules/themes/views/default/template_view.php
+DEBUG - 2014-09-28 22:09:59 --> Final output sent to browser
+DEBUG - 2014-09-28 22:09:59 --> Total execution time: 0.0353
