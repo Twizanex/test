@@ -321,20 +321,7 @@ if($user->num_rows()<=0){
 
               <?php endif; ?>
 
-              <?php if(isset($is_single) && is_loggedin()) : ?>
-
-
-
-                <div class="updates-item-comment-form">
-                  <div class="updates-item-comment-form-answer" style="display:none;">
-                  </div>
-                  <?php echo form_open("share/comment", array('id' => 'comment_form')); ?>
-                  <?php echo form_textarea(array('name' => 'content'), '', 'placeholder="'.lang('home_comment_placeholder').'" '.(!isset($list)?' id="comment-textarea"':'')); ?>
-                  <?php echo form_hidden('update_id', $update_id); ?>
-                  <?php echo form_submit('comment', lang('home_comment_submit'),'id="comment" class="comment-submit gradient-btn"'); ?>
-                  <?php echo form_close(); ?>
-                </div>
-              <?php endif; ?>
+             
 
 
 
@@ -362,7 +349,22 @@ if($user->num_rows()<=0){
                   <li class="timeline-heading">
                     <div class="block">
                       <div class="caret"></div>
-                      <div class="box-generic">Contrnuto box fdgksgm
+                      <div class="box-generic">
+
+                       <?php // if(isset($is_single) && is_loggedin()) : ?>
+
+
+
+                <div class="updates-item-comment-form">
+                  <div class="updates-item-comment-form-answer" style="display:none;">
+                  </div>
+                  <?php echo form_open("share/comment", array('id' => 'comment_form')); ?>
+                  <?php echo form_input(array('name' => 'content'), '', 'placeholder="'.lang_key('home_comment_placeholder').'" '.(!isset($list)?' class="form-control" id="comment-textarea"':'')); ?>
+                  <?php echo form_hidden('update_id', $item['update_id']); ?>
+                  <?php echo form_submit('comment', lang_key('home_comment_submit'),'id="comment" class="comment-submit gradient-btn"'); ?>
+                  <?php echo form_close(); ?>
+                </div>
+              <?php //endif; ?>
                         sfdsg
                         <div class="timeline-top-info content-filled ">
                           <i class="fa fa-comments"></i> <strong> 3 comments </strong> Posted in Project <a href="#" class="text-primary">QuickAdmin</a> 
