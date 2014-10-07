@@ -99,11 +99,7 @@ class Profile extends CI_controller {
 
 	{
 
-        $value['query']			= $this->profile_model->get_users_by_range($start,$this->PER_PAGE,'id');
-
-        $total 					= $this->profile_model->count_users();
-
-        $value['pages']			= configPagination('show/agent/',$total,4,$this->PER_PAGE);
+        $value['profile']	= $this->profile_model->get_user_profile($this->session->userdata('user_id'));  
 
 		$data['content'] 	= load_view('profile_view',$value,TRUE);
 

@@ -8,7 +8,39 @@ if ( ! function_exists('follow_button'))
 		if (is_loggedin()){
 			if (user_session_id()!=$user_id){
 				if (user_follow($user_id)) {
-					echo '
+					echo '<script src="'.theme_url().'/assets/js/top_follow.js"></script>
+<style type="text/css">
+
+.follow_b
+{
+    border:#dedede solid 2px;
+    background-color:#f5f5f5;
+    color:#000;
+    font-size:12px;
+    font-weight:bold;
+    padding: 5px;
+    -moz-border-radius: 6px; -webkit-border-radius: 6px; 
+}
+.youfollowing_b
+{
+    font-size:14px; color:#006600; font-weight:bold;
+}
+.remove_b
+{
+    border:#dedede solid 2px;
+    background-color:#f5f5f5;
+    color:#CC3333;
+    font-size:12px;
+    padding-left:4px ;
+    padding-right:4px ;
+    font-weight:bold;
+    margin-left:240px;
+    -moz-border-radius: 6px; -webkit-border-radius: 6px; 
+}
+
+
+</style>
+
 					<script>
 					$(function() 
 					{
