@@ -18,6 +18,8 @@
 
     <link rel="stylesheet" href="<?php echo theme_url();?>/assets/css/custom.css">
 
+   <link rel="stylesheet" href="<?php echo theme_url();?>/assets/css/flags.css">
+
 
 
 

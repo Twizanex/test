@@ -464,7 +464,15 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
             <div class="panel-body">
 
+            
+
+
                 <?php echo get_description_for_edit_by_id_lang($row->id,$curr_lang);?>
+                <div  class="chart" data-percent="56.4" data-line-width="16" data-loop="false" data-size="188" style="width: 188px; height: 188px; line-height: 188px;">
+                    
+                        <span class="h2 step"> A+</span>
+
+                    <canvas width="188" height="188"></canvas></div>
 
             </div>
 
@@ -605,11 +613,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
                         <?php } ?>
                     </p>
 <p>
-<div class="chart" data-percent="56.4" data-line-width="16" data-loop="false" data-size="188" style="width: 188px; height: 188px; line-height: 188px;">
-                    
-                        <span class="h2 step"> A+</span>
 
-                    <canvas width="188" height="188"></canvas></div>
 
 
                        

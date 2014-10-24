@@ -7,6 +7,9 @@
 <script src="<?php echo theme_url();?>/assets/js/easyResponsiveTabs.js" type="text/javascript"></script>
 
 
+<script src="http://127.0.0.1/condivisi/social/js/scripts.js?v=1.15" type="text/javascript"></script>
+
+
 <style type="text/css">
   .resp-tab-active {
     border: 1px solid #c1c1c1;
@@ -18,6 +21,121 @@
   }
 
 
+
+./* Share */
+.updates-list-share{
+    margin:5px;
+    padding:10px;
+    border:1px solid #ddd;
+    border-radius: 10px;
+    background: #eee;
+    width:603px;
+}
+.updates-list-share .updates-list-header{
+    width:455px;
+}
+.update-list-share-form{
+    position:relative;
+}
+.updates-list-share textarea{
+    margin-top:10px;
+    width:593px;
+    height:30px;
+    float: right;
+    -webkit-transition: -webkit-box-shadow 0.5s ease-out;
+    -moz-transition: -moz-box-shadow 0.5s ease-out;
+    -ms-transition: box-shadow 0.5s ease-out;
+    -o-transition: box-shadow 0.5s ease-out;
+    transition: box-shadow 0.5s ease-out;
+}
+.updates-list-share textarea.animate{
+    -moz-box-shadow: 0 0 5px #333;
+    -webkit-box-shadow: 0 0 5px #333;
+    box-shadow: 0 0 5px #333;
+}
+#update-list-share-add{
+    clear:both;
+    display:inline-block;
+    margin-top:2px;
+    margin-bottom: -2px;
+    width:505px;
+    overflow:hidden;
+    position:relative;
+}
+.updates-list-share input{
+    display:inline-block;
+    width:495px;
+}
+.updates-list-share input#photo-styled{
+   position:absolute;
+   left:0;
+   top:0;
+   background: #fff url(../images/icon/update-sprite.png) no-repeat 477px -14px;
+   padding-right: 20px;
+   width:475px;
+   z-index: 1;
+}
+.updates-list-share input[type=file]{
+    position: relative;
+    text-align: right;
+    opacity: 0;
+    filter: alpha(opacity=0); /* msie */
+    z-index: 2;
+    margin-bottom: -4px;
+}
+.updates-list-share input[type=submit]{
+    width:80px;
+    float:right;
+}
+#update-list-share-btns{
+    display:inline-block;
+    float:right;
+}
+#update-list-share-btns a{
+    margin:0;
+    padding:2px;
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* msie */
+    width:24px;
+    height: 24px;
+    overflow:hidden;
+    display:inline-block;
+    border-radius:4px;
+}
+#update-list-share-btns a.selected, #update-list-share-btns a:hover{
+    opacity : 1;
+    filter: alpha(opacity=100); /* msie */
+    background: #2b9b0c; /* Old browsers */
+    box-shadow:0 0 2px #151;
+}
+.text-btn,.url-btn, .video-btn, .photo-btn{
+    width:24px;
+    height:24px;
+    display:block;
+}
+.text-btn{ background: url(../images/icon/share-sprite.png) no-repeat center -24px; }
+.url-btn{ background: url(../images/icon/share-sprite.png) no-repeat center -48px; }
+.video-btn{ background: url(../images/icon/share-sprite.png) no-repeat center -72px; }
+.photo-btn{ background: url(../images/icon/share-sprite.png) no-repeat center -96px; }
+#update-share-form{
+    position:relative;
+    margin:5px;
+}
+#update-share-form textarea.full-screen{
+    width: 920px;
+    height: 100px;
+    margin: 0;
+}
+#update-share-form textarea.popup-screen{
+    width: 380px;
+    height: 70px;
+    margin: 0;
+}
+#update-share-form input[type=submit]{
+    position:absolute;
+    right:2px;
+    bottom:7px;
+}
 
 </style>
 
@@ -111,7 +229,7 @@ if($user->num_rows()<=0){
 
 
 
-      <div id="horizontalTab">          
+      <div id="Tab">          
         <ul class="resp-tabs-list">
           <li> <?php echo lang_key('Timeline'); ?> </li>
           <li> <?php echo lang_key('Property'); ?> </li>
@@ -125,6 +243,68 @@ if($user->num_rows()<=0){
 
 
          <div>
+
+
+<div class="updates-list-share">
+            <div class="update-list-share-form">
+            <div class="updates-list-header">
+                <h2><?php echo lang_key('home_share_title'); ?></h2>
+            </div>
+
+            <?php $sharing = 'text'; ?>
+
+            <div id="update-list-share-btns">
+                <?php echo anchor('home/share/text', '<i class="text-btn"></i>', 'title="'.lang_key('home_share_text').'" class="share-btn-action share-text'.(($sharing == 'text')?' selected':'').'"'); ?>
+                <?php echo anchor('home/share/link', '<i class="url-btn"></i>', 'title="'.lang_key('home_share_link').'" class="share-btn-action share-link'.(($sharing == 'link')?' selected':'').'"'); ?>
+                <?php echo anchor('home/share/video', '<i class="video-btn"></i>', 'title="'.lang_key('home_share_video').'" class="share-btn-action share-video'.(($sharing == 'video')?' selected':'').'"'); ?>
+                <?php echo anchor('home/share/photo', '<i class="photo-btn"></i>', 'title="'.lang_key('home_share_photo').'" class="share-btn-action share-photo'.(($sharing == 'photo')?' selected':'').'"'); ?>
+            </div>
+                <?php echo form_open_multipart('home/share', 'id="home-share-form"'); ?>
+                <?php echo form_textarea(array('name' => 'comment'), '', 'placeholder="'.lang_key('home_share_place_text').'" id="home-share-comment"'); ?>
+                <div id="update-list-share-add" <?php if($sharing == 'text') echo 'style="display:none"'; ?>>
+                <?php if($sharing == 'link') : ?>
+                    <div id="update-list-share-add">
+                    <?php echo form_input('url', '','id="url" placeholder="'.lang_key('home_share_place_link').'"'); ?>
+                    </div>
+                <?php endif; ?>
+                <?php if($sharing == 'video') : ?>
+                    <div id="update-list-share-add">
+                    <?php echo form_input('video', '','id="video" placeholder="'.lang_key('home_share_place_video').'"'); ?>
+                    </div>
+                <?php endif; ?>
+                <?php if($sharing == 'photo') : ?>
+                    <div id="update-list-share-add">
+                    <?php echo form_input('photo_styled', '','id="photo-styled" placeholder="'.lang_key('home_share_place_photo').'"'); ?>
+                    <?php echo form_upload('photo', '', 'id="photo"'); ?>
+                    </div>
+                <?php endif; ?>
+                </div>
+
+                <?php echo form_hidden('remote', ''); ?>
+                <?php echo form_hidden('title', ''); ?>
+                <?php echo form_hidden('description', ''); ?>
+                <?php echo form_hidden('image', ''); ?>
+                <?php echo form_hidden('icon', ''); ?>
+                <?php echo form_hidden('domain', ''); ?>
+                <?php echo form_hidden('site_name', ''); ?>
+                <?php echo form_hidden('player', ''); ?>
+
+                <?php echo form_hidden('type', $sharing); ?>
+                <?php echo form_submit('share', lang_key('home_share_submit'),'id="submit" class="gradient-btn"'); ?>
+                <?php echo form_close(); ?>
+                <div class="clear"></div>
+                <div id="updates-list-share-answer" <?php if(!isset($error_msg)) echo 'style="display:none;"'; ?>>
+                    <?php if(isset($error_msg)) : ?>
+                    <p class="error-msg"><?php echo $error_msg; ?></p>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
 
 
 
@@ -714,7 +894,7 @@ if($user->num_rows()<=0){
 
 <script type="text/javascript">
   $(document).ready(function () {
-    $('#horizontalTab').easyResponsiveTabs({
+    $('#Tab').easyResponsiveTabs({
             type: 'default', //Types: default, vertical, accordion           
             width: 'auto', //auto or any width like 600px
             fit: true,   // 100% fit in a container

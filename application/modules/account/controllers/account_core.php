@@ -31,6 +31,8 @@ class Account_core extends CI_Controller {
 
 		$this->load->database();
 
+		$this->output->enable_profiler($this->config->item('debug_site'));	
+
 		$this->active_theme = get_active_theme();
 
 		$this->per_page = get_per_page_value();#defined in auth helper
@@ -160,7 +162,7 @@ class Account_core extends CI_Controller {
 					$this->session->set_userdata('user_email',$this->input->post('useremail'));
 
 					if(is_admin())
-						create_log($row->user_name);
+						//create_log($row->user_name);
 
 					if($this->session->userdata('req_url')!='')
 

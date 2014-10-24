@@ -11,7 +11,7 @@ $curr_lang = ($CI->uri->segment(1)!='')?$CI->uri->segment(1):'en';
                             <i class="fa fa-home"></i> <?php echo lang_key('Profile'); ?>                   </a>
                     </li>
                                         <li class="">
-                        <a href="<?= base_url().$curr_lang; ?>/profile/subscription">
+                        <a href="<?= base_url().$curr_lang; ?>/account/renew">
                             <i class="fa fa-indent"></i> <?php echo lang_key('Subscription'); ?>                      </a>
                     </li>
                                         <li class="">

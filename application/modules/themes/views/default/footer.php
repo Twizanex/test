@@ -14,7 +14,54 @@
 
                     <div class="col-md-4 widget">
                         <?php render_widgets('footer_third_column');?>
+
                     </div>
+
+ 
+                  
+
+<?php
+
+        $CI         = get_instance();
+
+        $uri        = current_url();
+
+        $curr_lang  = ($CI->uri->segment(1)!='')?$CI->uri->segment(1):'en';
+
+
+
+        if($CI->uri->segment(1)=='')
+
+            $uri .= '/en';
+
+
+
+        $CI->load->model('admin/system_model');
+
+        $query = $CI->system_model->get_all_langs();
+
+        echo '<p>';
+
+        $url = $uri;
+
+        foreach ($query->result() as $lang) {   
+
+            $uri = str_replace('/'.$curr_lang,'/'.$lang->short_name,$url);
+
+            $sel = ($curr_lang==$lang->short_name)?'active':'';
+
+            $english = ('en'==$lang->short_name)?'us':$lang->short_name;
+
+            echo ' <a href="'.$uri.'"><img src="'. theme_url().'/assets/images/blank.gif" class="flag flag-'.$english.'" alt="'.ucwords($lang->lang).'" /></a> ';
+
+        }
+
+        echo '</p>';
+
+
+
+        ?>
+
 
                 </div> <!-- /row of widgets -->
             </div>
@@ -25,7 +72,7 @@
                 <div class="row">
                     
                     <div class="col-md-6 widget">
-                        <!--div class="widget-body">
+                        <div class="widget-body">
                             <p class="simplenav">
                                 <a href="#">Home</a> | 
                                 <a href="about.html">About</a> |
@@ -33,7 +80,7 @@
                                 <a href="contact.html">Contact</a> |
                                 <b><a href="signup.html">Sign up</a></b>
                             </p>
-                        </div-->
+                        </div>
                     </div>
 
                     <div class="col-md-6 widget">

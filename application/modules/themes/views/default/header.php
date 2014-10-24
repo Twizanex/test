@@ -139,57 +139,7 @@
 
     </li>    
 
-    <li class="dropdown">
-
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-
-            <i class="fa fa-globe"></i> <b class="caret"></b>
-
-        </a>
-
-
-
-        <?php
-
-        $CI         = get_instance();
-
-        $uri        = current_url();
-
-        $curr_lang  = ($CI->uri->segment(1)!='')?$CI->uri->segment(1):'en';
-
-
-
-        if($CI->uri->segment(1)=='')
-
-            $uri .= '/en';
-
-
-
-        $CI->load->model('admin/system_model');
-
-        $query = $CI->system_model->get_all_langs();
-
-        echo '<ul class="dropdown-menu lang-menu">';
-
-        $url = $uri;
-
-        foreach ($query->result() as $lang) {   
-
-            $uri = str_replace('/'.$curr_lang,'/'.$lang->short_name,$url);
-
-            $sel = ($curr_lang==$lang->short_name)?'active':'';
-
-            echo '<li class="'.$sel.'"><a href="'.$uri.'">'.ucwords($lang->lang).'</a></li>';
-
-        }
-
-        echo '</ul>';
-
-
-
-        ?>
-
-    </li>
+    
 
     
 
@@ -234,21 +184,24 @@
                     <li class="dropdown" id="secondary-nav">
 
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-comment"></i>
 
-                            <?php echo lang_key('Profile');
+                            <?php 
 
                             $querys = get_notific(user_session_id()); 
                             
                             $notifiche= count($querys);
-                            echo $notifiche;
-                            ?> <b class="caret"></b>
-
+                           
+                             if ($notifiche > 0){?> 
+                            <span class="label label-info"><?= $notifiche; ?></span>
+                            <?php } ?>
                         </a>
-
-                        <ul class="dropdown-menu" id="secondary-nav">
-                            <?php 
+ <?php 
                             if ($notifiche > 0){
-                               
+?>
+                        <ul class="dropdown-menu" id="secondary-nav">
+                           
+                               <?php
                                 foreach ($querys as $notific) {   
 
                                     
@@ -264,28 +217,12 @@
                                     </li>';
 
                                 }
-                            }
+                           
+                            
+
+                echo'</ul>';
+                 }
                             ?>
-                            <li class="">
-
-                                <a href="<?php echo site_url('profile');?>">
-
-                                </i> <?php echo lang_key('Profile');?>
-
-                            </a>
-
-                        </li>
-                        <li class="">
-
-                            <a href="<?php echo site_url('show/type/'.$v);?>">
-
-                            </i> <?php echo lang_key('Profile');?>
-
-                        </a>
-
-                    </li>
-
-                </ul>
 
                 <?php 
 
@@ -293,17 +230,29 @@
                 
 
                 if(!is_admin()){?>
+               
+<li><a href="<?php echo site_url('profile/timeline');?>" ><img style="width: 2em;" src="<?php echo get_profile_photo_by_id(user_session_id(),'thumb');?>" alt="Profile" class="img-responsive-mini"></a></li>
+ <li class="dropdown" id="secondary-nav">
 
-                <li><a class="btn" href="<?php echo site_url('admin/realestate/allestatesagent');?>"><?php echo lang_key('agent_panel'); ?></a></li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo get_user_fullname_by_id(user_session_id()); ?><b class="caret"></b></a>
+                        <ul class="dropdown-menu" >
+                <li><a class="" href="<?php echo site_url('profile');?>"><?php echo lang_key('Profile'); ?></a></li>
+                <li><a class="" href="<?php echo site_url('admin/realestate/allestatesagent');?>"><?php echo lang_key('DBC_AGENT_PANEL'); ?></a></li>
 
                 <?php }else{?>
+                
+<li><a href="<?php echo site_url('profile/timeline');?>" ><img style="width: 2em;" src="<?php echo get_profile_photo_by_id(user_session_id(),'thumb');?>" alt="Profile" class="img-responsive-mini"></a></li>
+ <li class="dropdown" id="secondary-nav">
 
-                <li><a class="btn" href="<?php echo site_url('admin');?>"><?php echo lang_key('admin_panel'); ?></a></li>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo get_user_fullname_by_id(user_session_id()); ?><b class="caret"></b></a>
+                        <ul class="dropdown-menu" >
+                        <li><a class="" href="<?php echo site_url('profile');?>"><?php echo lang_key('Profile'); ?></a></li>
+                <li><a class="" href="<?php echo site_url('admin');?>"><?php echo lang_key('DBC_ADMIN_PANEL'); ?></a></li>
 
                 <?php }?>
 
-                <li><a class="btn" href="<?php echo site_url('account/logout');?>"><?php echo lang_key('logout'); ?></a></li>
-
+                <li><a class="" href="<?php echo site_url('account/logout');?>"><?php echo lang_key('logout'); ?></a></li>
+</ul>
                 <?php }?>
 
             </ul>
