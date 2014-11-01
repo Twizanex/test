@@ -8,6 +8,8 @@
 
     <script src="<?php echo theme_url();?>/assets/js/template.js"></script>
 
+     <script src="<?php echo theme_url();?>/assets/js/jasny-bootstrap.js"></script>
+
 
 
 

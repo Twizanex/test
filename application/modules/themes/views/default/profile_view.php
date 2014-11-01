@@ -22,6 +22,7 @@
 
   
 </style>
+<link rel="stylesheet" href="<?php echo theme_url();?>/assets/css/module.examples.page.timeline-project.min.css" />
 
 <div class="row">
   <!-- Gallery , DETAILES DESCRIPTION-->
@@ -39,16 +40,7 @@
      <!-- Widget -->
      <div class="widget widget-tabs widget-tabs-double-2 border-bottom-none">
 
-      <!-- Widget heading -->
-      <div class="widget-head">
-        <ul>
-          <li class="active"><a class="glyphicons display" href="#overview" data-toggle="tab"><i></i>Overview</a></li>
-          <li><a class="glyphicons edit" href="#edit-account" data-toggle="tab"><i></i>Edit account</a></li>
-          <li><a class="glyphicons luggage" href="#projects" data-toggle="tab"><i></i>Projects</a></li>
-        </ul>
-      </div>
-      <!-- // Widget heading END -->
-
+      
       <div class="widget-body">
 
         <form class="form-horizontal">
@@ -232,313 +224,7 @@ if ($notifiche> 0){
 
           </div>
 
-          <!-- Tab content -->
-          <div class="tab-pane widget-body-regular containerBg" id="edit-account">
-
-            <div class="widget widget-tabs widget-tabs-vertical row row-merge margin-none widget-body-white">
-
-              <!-- Widget heading -->
-              <div class="widget-head col-md-3">
-                <ul>
-                  <li class="active"><a class="glyphicons pencil" href="#account-details" data-toggle="tab"><i></i>Account details</a></li>
-                  <li><a class="glyphicons settings" href="#account-settings" data-toggle="tab"><i></i>Account settings</a></li>
-                  <li><a class="glyphicons eye_open" href="#privacy-settings" data-toggle="tab"><i></i>Privacy settings</a></li>
-                </ul>
-              </div>
-              <!-- // Widget heading END -->
-
-              <div class="widget-body col-md-9">
-
-                <div class="tab-content">
-                  <div class="tab-pane active" id="account-details">
-
-                    <!-- Row -->
-                    <div class="row">
-
-                      <!-- Column -->
-                      <div class="col-md-6">
-
-                        <!-- Group -->
-                        <div class="form-group">
-                          <label class="col-md-4 control-label">First name</label>
-                          <div class="col-md-8">
-                            <input type="text" value="John" class="form-control" />
-                          </div>
-                        </div>
-                        <!-- // Group END -->
-
-                        <!-- Group -->
-                        <div class="form-group">
-                          <label class="col-md-4 control-label">Last name</label>
-                          <div class="col-md-8">
-                            <input type="text" value="Doe" class="form-control" />
-                          </div>
-                        </div>
-                        <!-- // Group END -->
-
-                        <!-- Group -->
-                        <div class="form-group">
-                          <label class="col-md-4 control-label">Date of birth</label>
-                          <div class="col-md-8">
-                            <div class="input-group">
-                              <input type="text" id="datepicker1" class="form-control" value="13/06/1988" />
-                              <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- // Group END -->
-
-                      </div>
-                      <!-- // Column END -->
-
-                      <!-- Column -->
-                      <div class="col-md-6">
-
-                        <!-- Group -->
-                        <div class="form-group">
-                          <label class="col-md-2 control-label">Gender</label>
-                          <div class="col-md-10">
-                            <select class="form-control">
-                              <option>Male</option>
-                              <option>Female</option>
-                            </select>
-                          </div>
-                        </div>
-                        <!-- // Group END -->
-
-                        <!-- Group -->
-                        <div class="form-group">
-                          <label class="col-md-2 control-label">Age</label>
-                          <div class="col-md-10">
-                            <input type="text" value="25" class="form-control" />
-                          </div>
-                        </div>
-                        <!-- // Group END -->
-
-                      </div>
-                      <!-- // Column END -->
-
-                    </div>
-                    <!-- // Row END -->
-
-                    <div class="separator line bottom"></div>
-
-                    <!-- Group -->
-                    <div class="control-group">
-                      <label class="control-label">About me</label>
-                      <div class="controls-uno">
-                        <textarea id="mustHaveId" class="wysihtml5 form-control" rows="5">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</textarea>
-                      </div>
-                    </div>
-                    <!-- // Group END -->
-
-                    <!-- Form actions -->
-                    <div class="separator top">
-                      <button type="submit" class="btn btn-icon btn-primary glyphicons circle_ok"><i></i>Save changes</button>
-                      <button type="button" class="btn btn-icon btn-default glyphicons circle_remove"><i></i>Cancel</button>
-                    </div>
-                    <!-- // Form actions END -->
-
-                  </div>
-                  <div class="tab-pane" id="account-settings">
-
-                    <!-- Row -->
-                    <div class="row">
-
-                      <!-- Column -->
-                      <div class="col-md-3">
-                        <strong>Change password</strong>
-                        <p class="muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                      </div>
-                      <!-- // Column END -->
-
-                      <!-- Column -->
-                      <div class="col-md-9">
-                        <label for="inputUsername">Username</label>
-                        <div class="input-group">
-                          <input type="text" id="inputUsername" class="form-control" value="john.doe2012" disabled="disabled" />
-                          <span class="input-group-addon" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Username can't be changed"><i class="fa fa-question-sign"></i></span>
-                        </div>
-                        <div class="separator"></div>
-
-                        <label for="inputPasswordOld">Old password</label>
-                        <div class="input-group">
-                          <input type="password" id="inputPasswordOld" class="form-control" value="" placeholder="Leave empty for no change" />
-                          <span class="input-group-addon" data-toggle="tooltip" data-placement="top" data-container="body" data-original-title="Leave empty if you don't wish to change the password"><i class="fa fa-question-sign"></i></span>
-                        </div>
-                        <div class="separator"></div>
-
-                        <label for="inputPasswordNew">New password</label>
-                        <input type="password" id="inputPasswordNew" class="form-control" value="" placeholder="Leave empty for no change" />
-                        <div class="separator"></div>
-
-                        <label for="inputPasswordNew2">Repeat new password</label>
-                        <input type="password" id="inputPasswordNew2" class="form-control" value="" placeholder="Leave empty for no change" />
-                        <div class="separator"></div>
-                      </div>
-                      <!-- // Column END -->
-
-                    </div>
-                    <!-- // Row END -->
-
-                    <div class="separator line bottom"></div>
-
-                    <!-- Row -->
-                    <div class="row">
-
-                      <!-- Column -->
-                      <div class="col-md-3">
-                        <strong>Contact details</strong>
-                        <p class="muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                      </div>
-                      <!-- // Column END -->
-
-                      <!-- Column -->
-                      <div class="col-md-9">
-                        <div class="row">
-                          <div class="col-md-6">
-                            <label for="inputPhone">Phone</label>
-                            <div class="input-group">
-                              <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-                              <input type="text" id="inputPhone" class="form-control" placeholder="01234567897" />
-                            </div>
-                            <div class="separator"></div>
-
-                            <label for="inputEmail">E-mail</label>
-                            <div class="input-group">
-                              <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                              <input type="text" id="inputEmail" class="form-control" placeholder="contact@mosaicpro.biz" />
-                            </div>
-                            <div class="separator"></div>
-
-                            <label for="inputWebsite">Website</label>
-                            <div class="input-group">
-                              <span class="input-group-addon"><i class="fa fa-link"></i></span>
-                              <input type="text" id="inputWebsite" class="form-control" placeholder="http://www.mosaicpro.biz" />
-                            </div>
-                            <div class="separator"></div>
-                          </div>
-                          <div class="col-md-6">
-                            <label for="inputFacebook">Facebook</label>
-                            <div class="input-group">
-                              <span class="input-group-addon"><i class="fa fa-facebook"></i></span>
-                              <input type="text" id="inputFacebook" class="form-control" placeholder="mosaicpro" />
-                            </div>
-                            <div class="separator"></div>
-
-                            <label for="inputTwitter">Twitter</label>
-                            <div class="input-group">
-                              <span class="input-group-addon"><i class="fa fa-twitter"></i></span>
-                              <input type="text" id="inputTwitter" class="form-control" placeholder="mosaicpro" />
-                            </div>
-                            <div class="separator"></div>
-
-                            <label for="inputSkype">Skype ID</label>
-                            <div class="input-group">
-                              <span class="input-group-addon"><i class="fa fa-skype"></i></span>
-                              <input type="text" id="inputSkype" class="form-control" placeholder="mosaicpro" />
-                            </div>
-                            <div class="separator"></div>
-
-                            <label for="inputgplus">Google</label>
-                            <div class="input-group">
-                              <span class="input-group-addon"><i class="fa fa-google-plus-sign"></i></span>
-                              <input type="text" id="inputgplus" class="form-control" placeholder="google ID" />
-                            </div>
-                            <div class="separator"></div>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- // Column END -->
-
-                    </div>
-                    <!-- // Row END -->
-
-                    <!-- Form actions -->
-                    <div class="form-actions" style="margin: 0;">
-                      <button type="submit" class="btn btn-icon btn-primary glyphicons circle_ok"><i></i>Save changes</button>
-                    </div>
-                    <!-- // Form actions END -->
-
-                  </div>
-                  <div class="tab-pane" id="privacy-settings">
-                    <div class="uniformjs">
-                      <label class="checkbox"><input type="checkbox" checked="checked" /> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</label>
-                      <label class="checkbox"><input type="checkbox" /> Vivamus et risus vel metus feugiat semper at sed odio.</label>
-                      <label class="checkbox"><input type="checkbox" /> Aenean bibendum faucibus tellus, et facilisis justo imperdiet vel.</label>
-                      <div class="separator top"></div>
-
-                      <div class="alert alert-primary">
-                        <a class="close" data-dismiss="alert">&times;</a>
-                        <p>Integer quis tempor mi. Donec venenatis dui in neque fringilla at iaculis libero ullamcorper. In velit sem, sodales id hendrerit ac, fringilla et est. Pellentesque at justo urna, eu pharetra tortor. Aenean aliquam, tellus vel suscipit luctus, risus enim ornare tellus, ac ultrices nisi enim sed magna.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-          <!-- // Tab content END -->
-
-          <!-- Tab content -->
-          <div class="tab-pane widget-body-regular" id="projects">
-
-            <div class="well">
-              <button type="button" class="btn btn-primary btn-icon glyphicons circle_plus pull-right"><i></i>Add project</button>
-              <p class="lead margin-none"><strong>1024</strong> sales this week</p>
-              <div class="clearfix"></div>
-            </div>
-
-            <table class="table table-striped table-vertical-center table-projects table-bordered">
-              <thead>
-                <tr>
-                  <th colspan="2">Project</th>
-                  <th width="120" class="center"></th>
-                  <th width="120" class="center"></th>
-                  <th width="160" class="center"></th>
-                  <th width="120" class="center"></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td width="80" class="center"><span class="thumb"><img src="http://2.s3.envato.com/files/50444644/80-avatar.jpg" alt="" /></span></td>
-                  <td class="important">Smashing - Premium Admin Template</td>
-                  <td class="center stats"><span>Sales today</span><span class="count">153</span></td>
-                  <td class="center stats"><span>Sales total</span><span class="count">1,365</span></td>
-                  <td class="center stats"><span>Earnings</span><span class="count">&dollar;25,356.00</span></td>
-                  <td class="center"><button type="button" class="btn btn-default">Manage</button></td>
-                </tr>
-                <tr>
-                  <td width="80" class="center"><span class="thumb"><img src="http://0.s3.envato.com/files/52347478/admin-avatar-12.jpg" alt="" /></span></td>
-                  <td class="important">AdminPlus - Premium Bootstrap Admin Template</td>
-                  <td class="center stats"><span>Sales today</span><span class="count">153</span></td>
-                  <td class="center stats"><span>Sales total</span><span class="count">1,365</span></td>
-                  <td class="center stats"><span>Earnings</span><span class="count">&dollar;25,356.00</span></td>
-                  <td class="center"><button type="button" class="btn btn-default">Manage</button></td>
-                </tr>
-                <tr>
-                  <td width="80" class="center"><span class="thumb"><img src="http://2.s3.envato.com/files/50868169/avatar80.jpg" alt="" /></span></td>
-                  <td class="important">AIR - Responsive Bootstrap Admin Template</td>
-                  <td class="center stats"><span>Sales today</span><span class="count">153</span></td>
-                  <td class="center stats"><span>Sales total</span><span class="count">1,365</span></td>
-                  <td class="center stats"><span>Earnings</span><span class="count">&dollar;25,356.00</span></td>
-                  <td class="center"><button type="button" class="btn btn-default">Manage</button></td>
-                </tr>
-                <tr>
-                  <td width="80" class="center"><span class="thumb"><img src="http://3.s3.envato.com/files/47008628/boot-admin-80_v13.jpg" alt="" /></span></td>
-                  <td class="important">BootAdmin - All-In-One Admin Responsive Template</td>
-                  <td class="center stats"><span>Sales today</span><span class="count">153</span></td>
-                  <td class="center stats"><span>Sales total</span><span class="count">1,365</span></td>
-                  <td class="center stats"><span>Earnings</span><span class="count">&dollar;25,356.00</span></td>
-                  <td class="center"><button type="button" class="btn btn-default">Manage</button></td>
-                </tr>
-              </tbody>
-            </table>
-
-          </div>
-          <!-- // Tab content END -->
+         
         </div>
       </form>
     </div>
@@ -546,7 +232,252 @@ if ($notifiche> 0){
   <!-- // Widget END -->
 
 
+<!-- Project -->
+<div class="timeline-project">
+    <div class="timeline-border">
+        <a href="#" class="timeline-image"><img src="http://127.0.0.1/condivisi/test/assets/images/logo/Schermata_da_2014-08-04_17:51:34.png"></a>
+        <!-- Heading -->
+        <ul class="list-unstyled heading">
+            <li class="timeline-heading">
+                <div class="block">
+                    <div class="caret"></div>
+                    <div class="box-generic">
+                        <div class="timeline-top-info content-filled ">
+                            <i class="fa fa-comments"></i> <strong> 3 comments </strong> Posted in Project <a href="#" class="text-primary">QuickAdmin</a> 
+                            <div class="dropdown pull-right">
+                                <a href="#" role="button" class="dropdown-toggle " data-toggle="dropdown"><i class="fa fa-caret-down text-primary"></i></a>
+                                <ul class="dropdown-menu " role="menu" >
+                                    <li><a href="#">Last comments</a></li>
+                                    <li><a href="#">Older comments</a></li>
+                                    <li><a href="#">Important comments</a></li>
+                                    <li><a href="#">Something Else</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <!-- // End Heading -->
+        
+        <div class="row ">
+            
+            <div class="col-sm-12">
+                <!--  Comments -->
+                <h4 class="innerTB"> Comments for this <strong class="text-primary">Project</strong></h4>
+                <ul class=" list-unstyled comments">
+                    <li>
+                        <a href="#" class="list-image"><img src="http://127.0.0.1/condivisi/test/assets/images/logo/Schermata_da_2014-08-04_17:51:34.png"></a>
+                        <div class="block block-inline">
+                            <div class="caret"></div>
+                            <div class="box-generic">
+                                <div class="timeline-top-info">
+                                    <i class="fa fa-user"></i> 
+                                    <a href="#">Mosaicpro</a> posted 
+                                    <a href="#" class="text-primary">Check Out the new Icons in this project</a>
+                                </div>
+                                <div class="media margin-none">
+                                    <div class="row innerLR innerB">
+                                        <i class="icon-comment-star-fill fa-3x innerLR pull-left"></i>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, aspernatur ut fuga eum cumque delectus voluptate impedit quaerat sapiente officiis fugit voluptates sit neque quibusdam beatae est modi repudiandae unde.</p>
+                                    </div>
+                                </div>      
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#" class="list-image"><img src="http://127.0.0.1/condivisi/test/assets/images/logo/Schermata_da_2014-08-04_17:51:34.png"></a>
+                        <div class="block block-inline">
+                            <div class="caret"></div>
+                            <div class="box-generic">
+                                <div class="timeline-top-info">
+                                    <i class="fa fa-user"></i> <a href="#">Mosaicpro</a> wrote a <a href="#" class="text-primary">comment</a> to <a href="">Jane S.</a>
+                                    <div class="timeline-bottom">
+                                        <i class="fa fa-clock-o"></i> 6 days ago  
+                                    </div>
+                                </div>
+                                <div class="content-filled">Good Job. Congrats and hope to see you soon.</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#" class="list-image"><img src="http://127.0.0.1/condivisi/test/assets/images/logo/Schermata_da_2014-08-04_17:51:34.png"></a>
+                        <div class="block block-inline">
+                            <div class="caret"></div>
+                            <div class="box-generic">
+                                <div class="timeline-top-info">
+                                    <i class="fa fa-user"></i> <a href="#">John </a> has uploaded 5 pages in <a href="#" class="text-primary"><i class="text-primary fa fa-location-arrow"></i> This Project</a>
+                                </div>
+                                <div class="innerLR innerB">
+                                        
+                                    <a href="#" class=""><i class="fa fa-file innerLR half"></i></a>    
+                                        
+                                    <a href="#" class=""><i class="fa fa-file innerLR half"></i></a>    
+                                        
+                                    <a href="#" class=""><i class="fa fa-file innerLR half"></i></a>    
+                                        
+                                    <a href="#" class=""><i class="fa fa-file innerLR half"></i></a>    
+                                        
+                                    <a href="#" class=""><i class="fa fa-file innerLR half"></i></a>    
+                                                                        <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!-- // End Comments -->
+            </div>          
+        </div>
+    </div>
+</div>
+<!-- // End Project -->
+<!--  Project -->
+<div class="timeline-project">
+    <div class="timeline-border">
+        <a href="#" class="timeline-image"><img src="../../assets/images/people/80/2.jpg"></a>
+        <!-- Heading -->
+        <ul class="list-unstyled heading">
+            <li class="timeline-heading">
+                <div class="block">
+                    <div class="caret"></div>
+                    <div class="box-generic">
+                        <div class="timeline-top-info content-filled ">
+                            <i class="fa fa-comments"></i> <strong> 5 comments </strong> Posted in Project <a href="#" class="text-primary">FlatPlus</a> 
+                            <div class="dropdown pull-right">
+                                <a href="#" role="button" class="dropdown-toggle " data-toggle="dropdown"><i class="fa fa-caret-down text-primary"></i></a>
+                                <ul class="dropdown-menu " role="menu" >
+                                    <li><a href="#">Last comments</a></li>
+                                    <li><a href="#">Older comments</a></li>
+                                    <li><a href="#">Important comments</a></li>
+                                    <li><a href="#">Something Else</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <!-- // End Heading -->
+        <div class="row ">
+            <div class="col-sm-4 ">
+                <div class="innerAll">
+                    <a href="../../assets/images/preview-2.jpg" class="project-preview"><img  src="../../assets/images/preview-2.jpg" class="img-responsive"/></a>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <!--  Comments -->
+                <h4 class="innerTB"> Comments for this <strong class="text-primary">Project</strong></h4>
+                <ul class=" list-unstyled comments">
+                    <li>
+                        <a href="#" class="list-image"><img src="../../assets/images/people/80/15.jpg"></a>
+                        <div class="block block-inline">
+                            <div class="caret"></div>
+                            <div class="box-generic">
+                                <div class="timeline-top-info">
+                                    <i class="fa fa-user"></i> 
+                                    <a href="#">Mosaicpro</a> posted 
+                                    <a href="#" class="text-primary">New animations in this project!</a>
+                                </div>
+                                <div class="media margin-none">
+                                    <div class="row innerLR innerB">
+                                        <i class="icon-refresh-star fa-3x innerLR pull-left"></i>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, aspernatur ut fuga eum cumque delectus voluptate impedit quaerat sapiente officiis fugit voluptates sit neque quibusdam beatae est modi repudiandae unde.</p>
+                                    </div>
+                                </div>      
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#" class="list-image"><img src="../../assets/images/people/80/14.jpg"></a>
+                        <div class="block block-inline">
+                            <div class="caret"></div>
+                            <div class="box-generic">
+                                <div class="timeline-top-info">
+                                    <i class="fa fa-user"></i> <a href="#">John</a> wrote a <a href="#" class="text-primary">review</a> about <a href="">This Project</a>
+                                    <div class="timeline-bottom">
+                                        <i class="fa fa-clock-o"></i> 2 Days Ago
+                                    </div>
+                                </div>
+                                <div class="content-filled">It's amazing. I love this project! Everything is awesome!</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#" class="list-image"><img src="../../assets/images/people/80/11.jpg"></a>
+                        <div class="block block-inline">
+                            <div class="caret"></div>
+                            <div class="box-generic">
+                                <div class="timeline-top-info">
+                                    <i class="fa fa-user"></i> <a href="#">Mosaicpro</a> wrote a <a href="#" class="text-primary">comment</a> to <a href="">John Doe</a>
+                                    <div class="timeline-bottom">
+                                        <i class="fa fa-clock-o"></i> Today
+                                    </div>
+                                </div>
+                                <div class="content-filled">It's up. check it out! <a href="#">Live demo</a></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#" class="list-image"><img src="../../assets/images/people/80/16.jpg"></a>
+                        <div class="block block-inline">
+                            <div class="caret"></div>
+                            <div class="box-generic">
+                                <div class="timeline-top-info">
+                                    <i class="fa fa-user"></i> <a href="#">John </a> has uploaded 7 photos in <a href="#" class="text-primary"><i class="text-primary fa fa-location-arrow"></i> Photo Gallery</a>
+                                </div>
+                                <div class="innerLR innerB">
+                                        
+                                    <a href="#" class="thumbnail pull-left margin-none"><img src="../../assets/images/people/80/1.jpg" alt="photo" width="35"/></a> 
+                                        
+                                    <a href="#" class="thumbnail pull-left margin-none"><img src="../../assets/images/people/80/2.jpg" alt="photo" width="35"/></a> 
+                                        
+                                    <a href="#" class="thumbnail pull-left margin-none"><img src="../../assets/images/people/80/3.jpg" alt="photo" width="35"/></a> 
+                                        
+                                    <a href="#" class="thumbnail pull-left margin-none"><img src="../../assets/images/people/80/4.jpg" alt="photo" width="35"/></a> 
+                                        
+                                    <a href="#" class="thumbnail pull-left margin-none"><img src="../../assets/images/people/80/5.jpg" alt="photo" width="35"/></a> 
+                                        
+                                    <a href="#" class="thumbnail pull-left margin-none"><img src="../../assets/images/people/80/6.jpg" alt="photo" width="35"/></a> 
+                                        
+                                    <a href="#" class="thumbnail pull-left margin-none"><img src="../../assets/images/people/80/7.jpg" alt="photo" width="35"/></a> 
+                                                                        <div class="clearfix"></div>
+                                </div>
 
+                                <div class="innerAll">
+                    <input class="form-control" placeholder="Comment here...">
+                </div>
+
+                
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#" class="list-image"><img src="../../assets/images/people/80/16.jpg"></a>
+                        <div class="block block-inline">
+                            <div class="caret"></div>
+                            <div class="box-generic">
+                                <div class="timeline-top-info">
+                                    <i class="fa fa-user"></i> <a href="#">John </a> has uploaded another 3 photos in <a href="#" class="text-primary"><i class="text-primary fa fa-location-arrow"></i> Photo Gallery</a>
+                                </div>
+                                <div class="innerLR innerB">
+                                        
+                                    <a href="#" class="thumbnail pull-left margin-none"><img src="../../assets/images/people/80/9.jpg" alt="photo" width="35"/></a> 
+                                        
+                                    <a href="#" class="thumbnail pull-left margin-none"><img src="../../assets/images/people/80/10.jpg" alt="photo" width="35"/></a>    
+                                        
+                                    <a href="#" class="thumbnail pull-left margin-none"><img src="../../assets/images/people/80/11.jpg" alt="photo" width="35"/></a>    
+                                                                        <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <!-- // End Comments -->
+            </div>          
+        </div>
+    </div>
+</div>
+<!-- // End Project -->
 
 
 
